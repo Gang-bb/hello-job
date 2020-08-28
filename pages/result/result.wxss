@@ -1,0 +1,23 @@
+/* pages/result/result.wxss */
+.base{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: #333333;
+	}
+	.msg{
+		color: #19cfb1;
+		font-size: 28px;
+		margin-top: 200rpx;
+		font-weight: bold;
+	}
+	.index{
+		border: 3rpx solid #f37b1d;
+		border-radius: 20rpx;
+		color: #f37b1d;
+		font-size: 18px;
+		margin-top: 200rpx;
+		padding: 10rpx 80rpx;
+		font-weight: 500;
+	}

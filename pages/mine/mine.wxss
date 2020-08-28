@@ -1,0 +1,194 @@
+/* pages/mine/mine.wxss */
+.basemine{
+  height: 100vh;
+  background:  #F5F5F5;
+}
+
+.headcolor{
+  background: #f37b1d;
+  height: 270rpx;
+  padding-top: 50rpx;
+}
+.avatar-bg{
+  margin-left: 30rpx;
+}
+
+.head-name{
+  display: flex;
+  flex-direction: row
+}
+.name-isverify{
+  display: flex;
+  flex-direction: column;
+  margin-left: 45rpx;
+  color: #FFFFFF;
+}
+.name{
+  font-size: 40rpx;
+}
+.isverify{
+  font-size: 14px;
+  margin-top: 15rpx;
+}
+.head-tips{
+  font-size: 14px;
+  margin-top: 10rpx
+}
+/* 我的简历 */
+.myresume{
+  padding-top: 45rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  background:  #FFFFFF;
+}
+.myresume-left{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rpx;
+}
+.myresume-left-tittle{
+  display: flex;
+  flex-direction: row;
+}
+.myresume-left-tittle-icon{
+  width: 6rpx;
+  background: #f37b1d;
+}
+.myresume-left-tittle-word{
+  margin-left: 10rpx;
+  font-size: 17px;
+}
+.myresume-left-tips{
+  margin-top: 20rpx;
+  color: #D3D3D3;
+  font-size: 13px;
+  margin-left: 15rpx;
+}
+.myresume-left-button{
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+  width: 90rpx;
+}
+.myresume-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20rpx;
+  font-size: 30px;
+  color: #f37b1d;
+}
+/* 报名跟踪 */
+.tracking{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background:  #FFFFFF;
+  padding-top: 45rpx;
+  padding-bottom: 40rpx;
+}
+.tracking-tittle{
+  display: flex;
+  flex-direction: row;
+  margin-left: 15rpx;
+}
+.tracking-tittle-icon{
+  width: 6rpx;
+  background: #f37b1d;
+}
+.tracking-tittle-word{
+  margin-left: 10rpx;
+  font-size: 17px;
+}
+.tracking-list{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  /* justify-content: center; */
+}
+.tracking-list-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+.tracking-list-item-number{
+  font-size: 32px;
+  color: #D3D3D3;
+}
+.tracking-list-item-tittle{
+  font-size: 16px;
+}
+.tracking-list-item-line{
+  width:3rpx; 
+  background: gainsboro;
+}
+/* 其他选项列表 */
+.otherlistitems{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background:  #FFFFFF;
+  padding-left: 30rpx;
+}
+.otherlistitems-item{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13rpx;
+  margin-bottom: 15rpx;
+}
+.otherlistitems-item-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15px;
+  color: #2c2c2c;
+}
+.otherlistitems-item-left-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.otherlistitems-item-left-word{
+  margin-left: 10rpx;
+}
+.otherlistitems-item-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+  color: gainsboro;
+  margin-right: 25rpx;
+}
+.otherlistitems-item-right-icon{
+  margin-left: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.otherlistitems-item-line{
+  height: 3rpx;
+  width: 100%;
+  background: gainsboro;
+}
+
+/* 退出并解绑 */
+.exit-line{
+  height: 20rpx;
+  width: 100%;
+  background: #F5F5F5;
+}
+.exit{
+  display: flex;
+  justify-content: center;
+  background:  #FFFFFF;
+  height: 100rpx;
+  padding-top: 30rpx;
+  font-size: 15px;
+}
+.bottom-tips{
+  font-size: 13px;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  color: gainsboro;
+}

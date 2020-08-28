@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "l-radio": "../../../component/lin-ui/radio/index",
+    "l-radio-group": "../../../component/lin-ui/radio-group/index",
+    "l-checkbox": "../../../component/lin-ui/checkbox/index",
+    "l-checkbox-group": "../../../component/lin-ui/checkbox-group/index"
+  }
+}

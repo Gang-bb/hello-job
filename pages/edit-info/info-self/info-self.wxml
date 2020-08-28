@@ -1,0 +1,20 @@
+<!--pages/edit-info/info-base/info-base.wxml-->
+<view class="base">
+  <!-- 第一栏 自我评价 -->
+  <view class="textarea">
+    <view class="textarea-one">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text class="textarea-tittle">自我评价</text>
+    </view>
+    <textarea  class="textarea-data" placeholder=' 请填写您的自我评价' 
+    minlength="{{min}}" maxlength="{{max}}" bindinput="inputs" value="{{selfIntroduction}}">
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    </textarea>
+  </view>
+  <!-- 底部按钮 -->
+  <view class="button-group">
+    <button bindtap="reset" class="button-reset">重置</button>
+    <button bindtap="submit" class="button-submit">提交</button>
+  </view>
+
+</view>

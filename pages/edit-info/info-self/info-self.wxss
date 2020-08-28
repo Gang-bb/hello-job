@@ -1,0 +1,65 @@
+/* pages/edit-info/info-self/info-self.wxss */
+.base{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  height: 100vh;
+  padding-top: 25rpx;
+}
+.button-group{
+  padding: 60rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 15px;
+  /* background: rgba(244,244,244,1); */
+}
+.button-submit{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 180rpx !important;
+  height: 72rpx !important;
+  color: #ffffff;
+  background: rgba(243,123,29,0.8);
+  border-radius: 10rpx;
+}
+.button-reset{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 180rpx !important;
+  height: 72rpx !important;
+  color: rgba(243,123,29,0.8);
+  background: rgba(244, 244, 244, 0.966);
+  border-radius: 10rpx;
+}
+.textarea{
+  background: #ffffff;
+  padding-top: 10rpx;
+  border: 3rpx solid gainsboro;
+}
+.textarea-one{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 8rpx; 
+}
+.textarea-data{
+  padding: 8rpx 0 0 8rpx;
+  width: 100%;
+  height: 400rpx;
+  margin-top: 10rpx;
+}
+.currentWordNumber {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  color: #888;
+}
+.textarea-tittle{
+  font-size: 15px;
+  margin: 8rpx;
+}

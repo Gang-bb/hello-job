@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-avatar": "../../component/lin-ui/avatar/index"
+  },
+  "navigationBarTitleText": "编辑简历"
+}

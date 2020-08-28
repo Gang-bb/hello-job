@@ -1,0 +1,72 @@
+/* pages/index/index.wxss */
+.baseindex {
+  background-color: #FFFFFF;
+  padding-top: 10rpx;
+  color: #333;
+}
+/* 火爆兼职 */
+
+.joblist-tittle{
+  font-size: 13px;
+  margin-left: 25rpx;
+  font-weight: bold;
+}
+.joblist{
+  display: flex;
+  flex-direction: column;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 30rpx;
+  padding-bottom: 25rpx;
+}
+
+.wsui-btn__hover_list {
+    opacity: 0.9;
+    background: #f7f7f7;
+}
+.line{
+   width: 100%;
+   height: 3rpx;
+   background: gainsboro
+}
+.job-content-first{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.job-name{
+   font-size: 16px
+}
+.job-price{
+  font-size: 16px;
+}
+.job-content-second{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+.job-content-third{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+.job-place{
+  font-size: 13px;
+  color: #DCDCDC;
+}
+.job-place{
+  font-size: 13px;
+  color: #D3D3D3;
+}
+.job-settlement{
+  font-size: 13px;
+  color: #D3D3D3;
+  margin-left: 25rpx;
+}
+.bottom-tips{
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+  display: flex;
+  justify-content: center;
+  color: gainsboro;
+}

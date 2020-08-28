@@ -1,0 +1,50 @@
+<view class="base">
+  <!-- 顶部 头像栏 -->
+  <view class="top">
+    <image class="top-icon" src="../../image/company.png"></image>
+    <view class="top-word">
+      <text class="top-word-name">广西巨光科技有限公司</text>
+      <text class="top-word-people">联系人：王女士</text>
+    </view>
+  </view>
+  <!-- 公司信息 -->
+  <view class="info">
+    <!-- 标题 -->
+    <view class="info-tittle">
+      <view class="info-tittle-icon"></view>
+      <text class="info-tittle-word">公司资料</text>
+    </view>
+    <view class="info-item">
+      <image src="../../image/dizhi.png" class="info-item-img"></image>
+      <text class="info-item-word">南宁青秀区广西壮族自治区建信路1号金湖广场</text>
+    </view>
+    <view class="info-item">
+      <image src="../../image/dianhua.png" class="info-item-img2"></image>
+      <text class="info-item-word">0771-5584523</text>
+    </view>
+  </view>
+  <!-- 正在招聘 -->
+  <text class="ing">正在招聘的岗位(2)</text>
+  <view class="job-item">
+    <view class="job-item-left">
+      <text class="job-item-tittle">传单派发员</text>
+      <text class="job-item-money">200/天</text>
+    </view>
+    <view class="job-item-right">
+      <image src="../../image/xiaomao.png" class="job-item-right-img"></image>
+      <image src="../../image/xiaomao.png" class="job-item-right-img2"></image>
+      <image src="../../image/xiaomao.png" class="job-item-right-img3"></image>
+    </view>
+  </view>
+  <view class="job-item">
+    <view class="job-item-left">
+      <text class="job-item-tittle">电话客服人员</text>
+      <text class="job-item-money">100/天</text>
+    </view>
+    <view class="job-item-right">
+      <image src="../../image/xiaomao.png" class="job-item-right-img"></image>
+      <image src="../../image/xiaomao.png" class="job-item-right-img2"></image>
+      <image src="../../image/xiaomao.png" class="job-item-right-img3"></image>
+    </view>
+  </view>
+</view>

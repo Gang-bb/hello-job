@@ -1,0 +1,27 @@
+<!--pages/mine/feedback/feedback.wxml-->
+<view class="feedbackbase">
+  <!-- 头部email -->
+  <view class="email">
+    <text class="email-tittle">你的邮箱：</text>
+    <input placeholder="请输入你的邮箱" class="email-input"></input>
+  </view>
+  <!-- 反馈内容框 -->
+  <view class="content">
+    <view class="type">
+      <text class="email-tittle">反馈类型：</text>
+      <text class="choosetype">功能建议</text>
+      <image src="../../../image/xiangxia.png" class="xiangxia"></image>
+    </view>
+    <view class="textarea">
+      <textarea  class="textarea-data" placeholder=' 请输入你的反馈信息' 
+      minlength="{{min}}" maxlength="{{max}}" bindinput="inputs">
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+      </textarea>
+    </view>
+  </view>
+  <!-- <view class="line"></view> -->
+  <!-- 文本域 -->
+  
+  <!-- 按钮 -->
+  <view class="button">提 交</view>
+</view>

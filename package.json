@@ -1,0 +1,14 @@
+{
+  "name": "part-time_job",
+  "version": "1.0.0",
+  "description": "大学生兼职系统",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lyx",
+  "license": "ISC",
+  "dependencies": {
+    "lin-ui": "^0.7.2"
+  }
+}

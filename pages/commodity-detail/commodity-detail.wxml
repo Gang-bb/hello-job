@@ -1,0 +1,125 @@
+<!--pages/commodity-detail/commodity-detail.wxml-->
+<view class="detailbase">
+    <!-- 标题头部 -->
+    <view class="detail-head">
+       <view class="detail-head-tittle">
+          {{job.tittle}}
+       </view>
+       <view class="detail-head-price">
+          {{job.reward}}
+       </view>
+       <view class="detail-head-otherinfo">
+          <view class="detail-head-otherinfo-left">
+              <view class="detail-head-otherinfo-left-place">
+                  {{job.place}} | 
+              </view>
+              <view class="detail-head-otherinfo-left-type">
+                  {{job.type}} |
+              </view>
+              <view class="detail-head-otherinfo-left-count">
+                  {{job.browseTimes}}次浏览
+              </view>
+          </view>
+          <view class="detail-head-otherinfo-right">
+             2020-02-27
+          </view>
+       </view>
+       <view class="detail-head-tags">
+          <view class="cu-tag line-orange" wx-if="{{job.settlement==1}}">日结</view>
+          <view class="cu-tag line-orange" wx-if="{{job.settlement==2}}">周结</view>
+          <view class="cu-tag line-orange" wx-if="{{job.settlement==3}}">完工结</view>
+          <view class="cu-tag line-orange">招{{job.recruitNum}}人</view>
+          <view class="cu-tag line-orange" wx-if="{{job.sex==1}}">男</view>
+          <view class="cu-tag line-orange" wx-if="{{job.sex==2}}">女</view>
+          <view class="cu-tag line-orange" wx-if="{{job.sex==3}}">男女不限</view>
+       </view>
+    </view>
+    <!-- 分割线 -->
+    <view class="commodity-line"></view>
+    <!-- 工作信息容器 -->
+    <view class="commodity-content">
+        <!-- 工作内容栏 -->
+        <view class="commodity-content-tittle">
+             <view class="commodity-content-tittle-left">
+                  <view class="commodity-content-tittle-icon"></view>
+                  <view class="commodity-content-tittle-word">工作内容</view>
+             </view>
+             <view class="commodity-content-tittle-line"></view>
+        </view>
+        <text class="commodity-content-simpleinfo">{{job.content}}</text> 
+        <text class="commodity-content-tips">Tips:凡涉及到工作内容不符，收费、违法信息传播的工作，请您警惕并收集相关证据向我们举报。</text>
+        <!-- 工作时间 -->
+        <view class="commodity-content-tittle">
+             <view class="commodity-content-tittle-left">
+                  <view class="commodity-content-tittle-icon"></view>
+                  <view class="commodity-content-tittle-word">工作时间</view>
+             </view>
+             <view class="commodity-content-tittle-line"></view>
+        </view>
+        <!-- 工作时间-内容 -->
+        <view class="commodity-content-time">
+            <view class="commodity-content-time-tittle">
+                 <text class="commodity-content-time-tittle-top">开始日期：</text>
+                 <text class="commodity-content-time-tittle-bottom">结束时间：</text>
+            </view>
+            <view class="commodity-content-time-icon">
+                 <view class="commodity-content-time-icon-spot"></view>
+                 <view class="commodity-content-time-icon-line"></view>
+                 <view class="commodity-content-time-icon-spot"></view>
+            </view>
+            <view class="commodity-content-time-dtime">
+                  <text class="commodity-content-time-top">{{job.startTime}}</text>
+                  <text class="commodity-content-time-oclock">上班时间报名后会通知</text>
+                  <text class="commodity-content-time-bottom">{{job.endTime}}</text>
+            </view>
+        </view>
+        <!-- 工作地点 -->
+        <view class="commodity-content-tittle">
+             <view class="commodity-content-tittle-left">
+                  <view class="commodity-content-tittle-icon"></view>
+                  <view class="commodity-content-tittle-word">工作地点</view>
+             </view>
+             <view class="commodity-content-tittle-line"></view>
+        </view>  
+        <!-- 工作地点-内容 -->
+        <view class="commodity-content-location">
+             <text>{{job.detailPlace}}</text>
+             <image bindtap="place" class="commodity-content-location-icon" src="../../image/ditu.png"></image>
+        </view>
+
+        <!-- 机构信息模块 -->
+        <view class="commodity-content-tittle">
+             <view class="commodity-content-tittle-left">
+                  <view class="commodity-content-tittle-icon"></view>
+                  <view class="commodity-content-tittle-word">机构信息</view>
+             </view>
+             <view class="commodity-content-tittle-line"></view>
+        </view>
+        <!-- 机构信息内容 -->
+        <view class="commodity-content-company" bindtap="company">
+             <view class="commodity-content-company-left">
+                 <image class="commodity-content-company-icon" src="../../image/company.png"></image>
+                 <view class="commodity-content-company-word">
+                      <text>{{job.fromCompany}}</text>
+                      <text>联系人：{{job.withPeople}}</text>
+                 </view>
+             </view>
+             <!-- <image class="commodity-content-company-right" src="../../image/you4.png"></image> -->
+        </view>
+    </view>
+    <view class="bottom"></view>
+    
+    <!-- 底部按钮 -->
+    <view class="bottom-button">
+        <view class="bottom-button-left" bindtap="share">
+            <text style="font-size: 16px;">分享岗位</text>
+            <text style="font-size: 12px;">(分享可获得录用优先)</text>
+        </view>
+        <view class="bottom-button-right" bindtap="signup">
+            <text style="font-size: 16px;">我要报名</text>
+            <text style="font-size: 12px;">({{job.signNum}}人已报名)</text>
+        </view>
+    </view>
+    
+    
+</view>

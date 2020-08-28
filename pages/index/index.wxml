@@ -1,0 +1,56 @@
+<!--pages/index/index.wxml-->
+<view class="baseindex">
+
+    <!-- 搜索框 -->
+    <l-search-bar bindtap="search" class="l-container-class" placeholder="大家都在搜：在家兼职"
+                bg-color="#f6f6f6"
+                shape="circle"
+                disabled="{{true}}"
+                show-cancel="{{false}}"/>
+
+    <!-- 轮播图 -->
+    <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#f37b1d">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id" class="{{cardCur==index?'cur':''}}">
+        <view class="swiper-item">
+          <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+          <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <!-- 火爆兼职标题 -->
+    <view class="joblist-tittle" style="color:#333">     
+            火爆兼职 
+    </view>
+    <!-- 分割线 -->
+       <view class="line"></view>
+    <!-- 兼职信息列表 -->
+    <block wx:for="{{jobList}}" wx:key="id">
+    <view class="joblist" hover-class='wsui-btn__hover_list' hover-stay-time="100" hover-start-time="200" bindtap="job" data-id='{{item.id}}'>
+       <view class="job-content-first">
+          <view class="job-name" style="color:#333">{{item.tittle}}</view>
+          <view class="job-price" style="color:#f37b1d">{{item.reward}}</view>
+       </view>
+       <view class="job-content-second">
+          <view class="job-place">{{item.place}} </view>
+          <view class="job-settlement" wx:if="{{item.settlement==1}}">日结</view>
+          <view class="job-settlement" wx:if="{{item.settlement==2}}">周结</view>
+          <view class="job-settlement" wx:if="{{item.settlement==3}}">完工结</view>
+       </view>
+       <view class="job-content-third">
+           <view class="cu-tag bg-orange.light" wx:if="{{item.isBagEating==1}}">包吃</view>
+           <view class="cu-tag bg-orange.light" wx:if="{{item.encase==1}}">包住</view>
+           <view class="cu-tag bg-orange.light" wx:if="{{item.isTrafficSubsidy==1}}">交通补贴</view>
+           <view class="cu-tag bg-orange.light" wx:if="{{item.royalty==1}}">有提成</view>
+       </view>
+    </view>
+     <!-- 分割线 -->
+    <view class="line"></view>
+    </block>
+       
+
+    <view class="bottom-tips" wx:if="{{isover==1}}">
+    —— 已经到底啦~ ——
+    </view>  
+       
+</view>

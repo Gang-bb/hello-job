@@ -1,0 +1,121 @@
+/* pages/company/company.wxss */
+.base{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  background: rgba(244,244,244,1);
+  height: 100vh;
+  padding-top: 25rpx;
+}
+.top{
+  display: flex;
+  flex-direction: roe;
+  background: #ffffff;
+  padding: 35rpx 25rpx;
+}
+.top-icon{
+  width: 100rpx;
+  height: 105rpx;
+  border-radius: 50%;
+}
+.top-word{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.top-word-name{
+  font-size: 17px;
+}
+.top-word-people{
+  margin-top: 10rpx;
+  font-size: 13px;
+  color: #999999; 
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 25rpx;
+  background: #ffffff;
+  margin-top: 25rpx;
+}
+.info-tittle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.info-tittle-icon{
+  width: 5rpx;
+  height: 100%;
+  margin: 6rpx 0;
+  background: #f37b1d;
+}
+.info-tittle-word{
+  font-size: 16px;
+  margin-left: 10rpx;
+}
+.info-item{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  align-items: center;
+}
+.info-item-img{
+  height: 45rpx;
+  width: 45rpx;
+}
+.info-item-img2{
+  height: 35rpx;
+  width: 35rpx;
+  margin-left: 7rpx;
+}
+.info-item-word{
+  font-size: 13px;
+  margin-left: 8rpx;
+  color: #999999;
+}
+.ing{
+  margin: 25rpx 0 0 25rpx;
+  color: #999999;
+  font-size: 14px;
+}
+.job-item{
+  margin: 25rpx 25rpx 0 25rpx;
+  background: #ffffff;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10rpx;
+}
+.job-item-left{
+  display: flex;
+  flex-direction: column;
+}
+.job-item-tittle{
+  font-size: 15px;
+  font-weight: bold;
+}
+.job-item-money{
+  font-size: 14px;
+  color: #f37b1d;
+  margin-top: 22rpx;
+}
+.job-item-right-img{
+  height: 110rpx;
+  width: 120rpx;
+  position: absolute;
+  right: 70rpx;
+}
+.job-item-right-img2{
+  height: 110rpx;
+  width: 120rpx;
+  position: absolute;
+  right: 180rpx;
+}
+.job-item-right-img3{
+  height: 110rpx;
+  width: 120rpx;
+  position: absolute;
+  right: 290rpx;
+}

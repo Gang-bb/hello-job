@@ -1,0 +1,78 @@
+<!--pages/mine/trackingdetail/detail.wxml-->
+<view class="detailbase">
+  <!-- 顶部 -->
+  <view class="item-one">
+    <view class="item-one-left">
+      <text class="item-one-right-tittle">{{resList.tittle}}</text>
+      <text class="item-one-right-other" decode="{{true}}" space="{{true}}">{{resList.place}} &nbsp; 2020-03-15 &nbsp;{{resList.reward}}</text>
+    </view>
+    <view class="item-one-right" wx:if="{{resList.status==1}}">待录用</view>
+    <view class="item-one-right" wx:if="{{resList.status==2}}">待工作</view>
+    <view class="item-one-right" wx:if="{{resList.status==3}}">待结算</view>
+    <view class="item-one-right" wx:if="{{resList.status==4}}">已结算</view>
+  </view>
+  <!-- 跟踪步骤条 -->
+  <view class="tracking">
+    <!-- 跟踪标题 -->
+    <view class="tracking-one">
+      <view class="tracking-one-icon"></view>
+      <text class="tracking-one-word">兼职报名跟踪</text>
+    </view>
+    <!-- 步骤栏 -->
+    <l-steps active-index="{{resList.status+1}}">
+      <l-step title="成功投递"/>
+      <l-step title="企业查看"/>
+      <l-step title="企业录用"/>
+      <l-step title="上岗工作"/>
+      <l-step title="工资结算"/>
+    </l-steps>
+    <!-- 分割线 -->
+    <view class="line"></view>
+
+    <!-- 跟踪每项介绍 -->
+    <view class="tracking-item" wx:if="{{resList.status>=1}}">
+      <view class="tracking-item-tittle">
+        <view class="tracking-item-tittle-icon"></view>
+        <text class="tracking-item-tittle-word">2020-03-20 23:31</text>
+      </view>
+      <text class="tracking-item-content">您已成功投递，请等待企业录用</text>
+    </view>
+
+    <!-- 跟踪每项介绍 -->
+    <view class="tracking-item" wx:if="{{resList.status>=2}}">
+      <view class="tracking-item-tittle">
+        <view class="tracking-item-tittle-icon"></view>
+        <text class="tracking-item-tittle-word">2020-03-20 23:31</text>
+      </view>
+      <text class="tracking-item-content">企业已阅读您的简历，离成功又进一步了~</text>
+    </view>
+
+    <!-- 跟踪每项介绍 -->
+    <view class="tracking-item" wx:if="{{resList.status>=2}}">
+      <view class="tracking-item-tittle">
+        <view class="tracking-item-tittle-icon"></view>
+        <text class="tracking-item-tittle-word">2020-03-20 23:31</text>
+      </view>
+      <text class="tracking-item-content">恭喜您被录用了，请联系企业按时上班</text>
+    </view>
+
+    <!-- 跟踪每项介绍 -->
+    <view class="tracking-item" wx:if="{{resList.status>=3}}">
+      <view class="tracking-item-tittle">
+        <view class="tracking-item-tittle-icon"></view>
+        <text class="tracking-item-tittle-word">2020-03-20 23:31</text>
+      </view>
+      <text class="tracking-item-content">您已完成签到，请认真按时完成工作哦~</text>
+    </view>
+
+    <!-- 跟踪每项介绍 -->
+    <view class="tracking-item" wx:if="{{resList.status>=4}}">
+      <view class="tracking-item-tittle">
+        <view class="tracking-item-tittle-icon"></view>
+        <text class="tracking-item-tittle-word">2020-03-20 23:31</text>
+      </view>
+      <text class="tracking-item-content">工作已成功结算，如有疑问请联系官方</text>
+    </view>
+
+  </view>
+</view>

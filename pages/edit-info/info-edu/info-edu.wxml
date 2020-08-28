@@ -1,0 +1,81 @@
+<!--pages/edit-info/info-base/info-base.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="base">
+  <!-- 第一栏 学校 -->
+  <view class="item">
+    <view class="item-left">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text style="font-size:14px;margin-left:10rpx;">学校</text>
+    </view>
+    <view class="item-right">
+      <!-- <input class="item-input" placeholder="请选择"  name="school" value="{{school}}" disabled="{{true}}"></input> -->
+      <input class="item-input" placeholder="请填写"  name="school" value="{{data.school}}"></input>
+      <!-- <image src="../../../image/youh.png" class="item-icon"></image> -->
+    </view>
+  </view>
+  <!-- 第二栏 主修专业 -->
+  <view class="item">
+    <view class="item-left">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text style="font-size:14px;margin-left:10rpx;">主修专业</text>
+    </view>
+    <view class="item-right">
+      <input class="item-input" placeholder="请填写"  name="major" value="{{data.major}}"></input>
+    </view>
+  </view>
+  <!-- 第三栏 学历 -->
+  <view class="item">
+    <view class="item-left">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text style="font-size:14px;margin-left:10rpx;">学历</text>
+    </view>
+    <view class="item-right">
+      <!-- <input class="item-input" placeholder="请选择"  name="degree" value="{{degree}}" disabled="{{true}}"></input>
+      <image src="../../../image/youh.png" class="item-icon"></image> -->
+      <input class="item-input" placeholder="请填写"  name="degree" value="{{data.degree}}"></input>
+    </view>
+  </view>
+  <!-- 第四栏 入学时间 -->
+  <view class="item">
+    <view class="item-left">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text style="font-size:14px;margin-left:10rpx;">入学时间</text>
+    </view>
+    <view class="item-right" bindtap="show"  data-id="1">
+      <input class="item-input" placeholder="请选择"  name="startTime" value="{{data.startTime}}" disabled="{{true}}"></input>
+      <image src="../../../image/youh.png" class="item-icon"></image>
+    </view>
+  </view>
+  <!-- 第五栏 毕业时间 -->
+  <view class="item-end">
+    <view class="item-left">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text style="font-size:14px;margin-left:10rpx;">毕业时间</text>
+    </view>
+    <view class="item-right" bindtap="show"  data-id="2">
+      <input class="item-input" placeholder="请选择"  name="endTime" value="{{data.endTime}}" disabled="{{true}}"></input>
+      <image src="../../../image/youh.png" class="item-icon"></image>
+    </view>
+  </view>
+  <!-- 第六栏 在校经历 -->
+  <view class="textarea">
+    <view class="textarea-one">
+      <text style="color:red;font-size:14px;margin-top:8rpx;">*</text>
+      <text class="textarea-tittle">在校经历</text>
+    </view>
+    <textarea  class="textarea-data" placeholder=' 请填写您的在校经历' 
+    minlength="{{min}}" maxlength="{{max}}" bindinput="inputs" value="{{data.experience}}" name="experience">
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    </textarea>
+  </view>
+  <!-- 底部按钮 -->
+  <view class="button-group">
+    <button formType="reset" class="button-reset">重置</button>
+    <button formType="submit" class="button-submit">提交</button>
+  </view>
+  <!-- 时间选择器 -->
+  <tui-datetime id="tui-dateTime-ctx" type="{{type}}" startYear="{{startYear}}" endYear="{{endYear}}" cancelColor="{{cancelColor}}" color="{{color}}"
+		 setDateTime="{{setDateTime}}" bindconfirm="change"></tui-datetime>
+
+</view>
+</form>

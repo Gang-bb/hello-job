@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/mine/myinfo/myinfo",
+    "pages/pre-info/pre-info",
+    "pages/mine/tracking/tracking",
+    "pages/index/search/search",
+    "pages/company/company",
+    "pages/edit-info/info-work/info-work",
+    "pages/edit-info/info-hope/info-hope",
+    "pages/edit-info/info-self/info-self",
+    "pages/edit-info/info-edu/info-edu",
+    "pages/edit-info/info-base/info-base",
+    "pages/mine/trackingdetail/detail",
+    "pages/mine/feedback/feedback",
+    "pages/text/text",
+    "pages/signup/signup",
+    "pages/commodity-detail/commodity-detail",
+    "pages/list/list",
+    "pages/result/result"
+  ],
+  "tabBar": {
+    "position": "bottom",
+    "color": "#7A7E83",
+    "selectedColor": "#f37b1d",
+    "borderStyle": "white",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/index_gray.png",
+        "selectedIconPath": "image/index.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/mine_gray.png",
+        "selectedIconPath": "image/mine.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f37b1d",
+    "navigationBarTitleText": "大学生兼职系统",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 0,
+    "backgroundColor": "#F5F5F5"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

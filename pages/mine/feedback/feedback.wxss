@@ -1,0 +1,72 @@
+.feedbackbase{
+  display: flex;
+		flex-direction: column;
+		background: rgba(244,244,244,0.6);
+		color: #333;
+    height: 100vh;
+}
+.email{
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.email-input{
+  padding-left: 40rpx;
+  align-self: center;
+  font-size: 15px;
+}
+.content{
+  margin-top: 25rpx;
+  background: #ffffff;
+  padding: 20rpx 30rpx 10rpx 30rpx;
+  font-size: 15px;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.choosetype{
+  padding-left: 40rpx;
+  font-size: 15px;
+  color: #f37b1d;
+}
+.xiangxia{
+  height: 30rpx;
+  width: 30rpx;
+  margin-left: 340rpx;
+}
+.line{
+  background: gainsboro;
+  height: 3rpx;
+  width: 100%;
+  margin-left: 30rpx;
+}
+.textarea-data{
+  margin-top: 20rpx;
+  background: #ffffff;
+  width: 100%;
+  height: 300rpx;
+}
+.currentWordNumber {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  color: #888;
+}
+.button{
+  margin-top: 60rpx;
+  background: rgba(243,123,29,0.9);
+  height: 80rpx;
+  width: 80%;
+  font-weight: 400;
+  border-radius: 20rpx;
+  align-items: center;
+  align-self: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+}

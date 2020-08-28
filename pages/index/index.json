@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-search-bar": "../../component/lin-ui/search-bar/index"
+  },
+  "enablePullDownRefresh": true
+}

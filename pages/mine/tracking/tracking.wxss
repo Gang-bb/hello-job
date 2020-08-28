@@ -1,0 +1,60 @@
+/* pages/mine/tracking/tracking.wxss */
+.tab-content{
+  margin: 5rpx 15rpx 25rpx 15rpx;
+  display: flex;
+  flex-direction: column;
+  background: rgba(244,244,244,0.3);
+}
+.content-item{
+  display: flex;
+  flex-direction: column;
+  box-shadow:0 0rpx 10rpx rgba(0,0,0,0.1);
+  margin-top: 30rpx
+}
+.item-one{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 28rpx 30rpx;
+}
+.item-one-left{
+  display: flex;
+  flex-direction: column;
+}
+.item-one-right-tittle{
+  font-size: 17px;
+}
+.item-one-right-other{
+  color: #999999;
+  font-size: 13px;
+  margin-top: 18rpx;
+}
+.item-one-right{
+  align-self: center;
+  color: #f37b1d;
+  font-size: 15px;
+}
+.line{
+  width: 100%;
+  height: 3rpx;
+  background: gainsboro;
+}
+.item-button{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.item-button-cancel{
+  padding: 15rpx 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-left:3rpx solid gainsboro;
+}
+.item-button-cancel-icon{
+  height: 40rpx;
+  width: 40rpx;
+}
+.item-button-cancel-word{
+  color: #8a8a8a;
+  font-size: 15px;
+}

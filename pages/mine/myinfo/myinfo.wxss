@@ -1,0 +1,204 @@
+/* pages/mine/myinfo/myinfo.wxss */
+.myinfoBase{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+  color: #333;
+}
+.tittleTips{
+  padding: 18rpx 30rpx;  
+  background: #FFEBE0;
+  color: #333;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* 主要内容 */
+.baseContent{
+  margin: 22rpx 30rpx 0 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.shadow {
+	    -moz-box-shadow: inset 0 0 4px #CCC;
+	    -webkit-box-shadow: inset 0 0 4px #CCC;
+	    box-shadow: inset 0 0 4px #CCC;  
+}
+/* 头像栏 */
+.contentTittle{
+  background: #FFFFFF;
+  padding: 20rpx 25rpx 30rpx 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3rpx solid #CCC;
+  color: #333;
+}
+
+/* 第一排 名字和编辑按钮 */
+.contentTittle-first{
+  display: flex;
+  flex-direction: row;
+}
+.contentTittle-first-edit{
+  color: #f37b1d;
+  font-size: 28rpx;
+  position: absolute;
+  left: 610rpx;
+}
+.contentTittle-first-edit2{
+  display: flex;
+  flex-direction: row;
+}
+.contentTittle-first-edit-icon{
+  width: 35rpx;
+  height: 35rpx;
+}
+/* 第二排 姓名 */
+.contentTittle-second{
+  font-size: 32rpx;
+  margin-top: 13rpx;
+}
+/* 第三排手机号 */
+.contentTittle-third{
+  font-size: 27rpx;
+  margin-top: 5rpx;
+  color: #D3D3D3;
+}
+.contentTittle-third{
+  font-size: 27rpx;
+  margin-top: 5rpx;
+}
+
+/* 简历其他各项信息 */
+.otherInfo{
+  margin-top: 22rpx;
+  padding: 25rpx 0;
+  background: #FFFFFF;
+  color: #f37b1d;
+  border: 3rpx solid #CCC;
+}
+
+/* 简历其他各项信息 没有填写的样式 */
+.otherInfo-none{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 简历每项 教育经历 工作经历 模块*/
+.otherInfo-item{
+  display: flex;
+  flex-direction: column;
+  padding: 0 25rpx;
+}
+/* 教育经历 工作经历第一排 */
+.otherInfo-item-first{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.otherInfo-item-first-left{
+  display: flex;
+  flex-direction: row;
+}
+.otherInfo-item-first-left-icon{
+  width: 6rpx;
+  background: #f37b1d;
+  margin: 7rpx 0 5rpx 0;
+}
+.otherInfo-item-first-left-word{
+  margin-left: 10rpx;
+}
+/* 教育经历 工作经历第二排 */
+.otherInfo-item-secord{
+  width: 100%;
+  height: 3rpx;
+  margin-top: 13rpx;
+  background: gainsboro;
+  margin-bottom: 20rpx;
+}
+/* 教育经历 工作经历第三排 */
+.otherInfo-item-third{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* 教育经历 工作经历第三排左边 */
+.otherInfo-item-third-left{
+  display: flex;
+  flex-direction: row;
+}
+/* 教育经历 工作经历第三排第一列 */
+.otherInfo-item-third-splicedicon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.otherInfo-item-third-splicedicon-spot{
+  width: 13rpx;
+  height: 13rpx;
+  background: #f37b1d;
+  border-radius: 50%;
+}
+.otherInfo-item-third-splicedicon-line{
+  width: 2rpx;
+  height: 100%;
+  background: #D3D3D3;
+}
+
+/* 教育经历 工作经历第三排第二列 */
+.otherInfo-item-third-message{
+  display: flex;
+  flex-direction: column;
+  font-size: 27rpx;
+  color: #333;
+  margin-left: 10rpx;
+  position: relative;
+  bottom: 13rpx;
+  width: 550rpx;
+}
+.otherInfo-item-third-message-third{
+  margin-top: 2rpx;
+  font-size: 26rpx;
+  color: gainsboro;
+}
+.otherInfo-item-third-message-fourth{
+  font-size: 26rpx;
+  color: gainsboro;
+  word-break:break-all;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.otherInfo-item-third-right{
+  width: 50rpx;
+  height: 50rpx;
+  align-self: center;
+}
+/* 简历每项 工作经历模块 */
+.otherInfo-item-work{
+  display: flex;
+  flex-direction: column;
+  padding: 0 25rpx;
+}
+/* 填写了工作期望 */
+.work-expect{
+  display: flex;
+  flex-direction: column;
+  font-size: 27rpx;
+}
+.work-expect-item{
+  display: flex;
+  flex-direction: row;
+  color: #333 !important;
+}
+.self-item{
+  color: #333 !important;
+}
+

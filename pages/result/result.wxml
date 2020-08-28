@@ -1,0 +1,5 @@
+<!--pages/result/result.wxml-->
+<view class="base">
+  <view class="msg">{{msg}}</view>
+  <view class="index" bindtap="index">回到首页</view>
+</view>

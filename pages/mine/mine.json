@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-avatar": "../../component/lin-ui/avatar/index",
+    "l-dialog": "../../component/lin-ui/dialog/index"
+  },
+  "navigationBarTitleText": "个人中心"
+}
