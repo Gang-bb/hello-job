@@ -1,0 +1,4 @@
+*.js linguist-language=JavaScript
+*.wxml linguist-language=wxml 
+*.wxss linguist-language=wxss 
+*.json linguist-language=JavaScript
