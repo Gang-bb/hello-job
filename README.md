@@ -1,4 +1,4 @@
-# Job-System
+# Job-MiniProgram
 一个模仿兼职猫微信小程序
 
 ### 界面截图
