@@ -1,5 +1,6 @@
 # Job-MiniProgram
 一个 大学生兼职 微信小程序
+后端接口： [Job-back-end](https://github.com/Gang-bb/Job-back-end)
 
 #### :jack_o_lantern:欢迎交流：QQ:949526365
 
