@@ -3,7 +3,7 @@
 
 
 
-1.0版本已经过去~也是让关注项目的小伙伴认识它的版本1.0版本项目介绍和截图戳链接[Job MiniProgram V1.0回顾](https://github.com/Gang-bb/Job-MiniProgram/wiki/Job-MiniProgram-V1.0%E5%9B%9E%E9%A1%BE)。代码在Tag  `v1.0.0`版本。感兴趣的小伙伴可以看看~
+1.0版本已经过去!!!也是让关注项目的小伙伴认识它的版本1.0版本项目介绍和截图戳链接[Job MiniProgram V1.0回顾](https://github.com/Gang-bb/Job-MiniProgram/wiki/Job-MiniProgram-V1.0%E5%9B%9E%E9%A1%BE)。代码在Tag  `v1.0.0`版本。感兴趣的小伙伴可以看看~
 
 目前决定对 `v1.0.0`没有再维护的计划，不过对于微信小程序的初学者也还是可以瞧一瞧的。在一些小伙伴的支持和期望下，决定重构项目，下面是一些计划和介绍！
 
