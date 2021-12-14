@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "l-steps": "../../../component/lin-ui/steps/index",
-    "l-step": "../../../component/lin-ui/step/index"
-  }
-}

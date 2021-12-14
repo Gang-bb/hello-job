@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "l-search-bar": "../../../component/lin-ui/search-bar/index"
-  },
-  "navigationBarTitleText": "搜索工作"
-}

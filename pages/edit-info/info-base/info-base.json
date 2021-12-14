@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "l-radio": "../../../component/lin-ui/radio/index",
-    "l-radio-group": "../../../component/lin-ui/radio-group/index",
-    "tui-datetime": "../../../component/dateTime/dateTime"
-  }
-}

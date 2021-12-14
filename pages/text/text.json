@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "l-segment": "../../component/lin-ui/segment/index",
-    "l-segment-item": "../../component/lin-ui/segment-item/index"
-  }
-}
