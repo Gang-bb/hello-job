@@ -1,0 +1,11 @@
+node_modules/
+.project 
+.DS_Store  
+*/.DS_Store
+/.git/
+/.idea
+/.hbuilderx
+/.unpackage
+/unpackage
+unpackage/
+/.rar
