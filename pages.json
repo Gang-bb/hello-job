@@ -26,6 +26,32 @@
 		"navigationBarBackgroundColor": "#F56718",
 		"backgroundColor": "#F8F8F8"
 	},
+	"subPackages": [
+		{
+			"root": "packagePartTime"
+			/* "pages": [{
+				"path": "index",
+				"style": {
+					"navigationBarTitleText": "潮领异界",
+					"navigationStyle": "custom",
+					"enablePullDownRefresh": false
+				}
+			}] */
+		},
+		{
+			"root": "packageUser",
+			"pages": [
+				/* {
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "区域规划",
+						"navigationStyle": "custom",
+						"enablePullDownRefresh": false
+					}
+				} */
+			]
+		}
+	],
 	"tabBar": {
 		"color": "#bfbfbf",
 		"selectedColor": "#F56718",
