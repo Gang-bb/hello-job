@@ -3,7 +3,20 @@
 		{
 			"path": "pages/index/index",
 			"style": {
+				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
+			}
+		},{
+			"path": "pages/partTime/index",
+			"style": {
+				"navigationBarTitleText": "全部兼职"
+			}
+		},{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+				// "navigationStyle": "custom",
+				// "enablePullDownRefresh": false
 			}
 		}
 	],
@@ -12,5 +25,30 @@
 		"navigationBarTitleText": "hello-job",
 		"navigationBarBackgroundColor": "#F56718",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#bfbfbf",
+		"selectedColor": "#F56718",
+		"backgroundColor": "#ffffff",
+		// "borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/_ic_tabbar_home.png",
+				"selectedIconPath": "static/images/tabbar/_ic_tabbar_home(1).png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/partTime/index",
+				"iconPath": "static/images/tabbar/tabbar-hold.png",
+				"selectedIconPath": "static/images/tabbar/tabbar-hold(1).png",
+				"text": "全部兼职"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"iconPath": "static/images/tabbar/icon_tabbar_myup.png",
+				"selectedIconPath": "static/images/tabbar/icon_tabbar_myup(1).png",
+				"text": "个人中心"
+			}
+		]
 	}
 }

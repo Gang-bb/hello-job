@@ -1,0 +1,25 @@
+// 文本n行溢出隐藏
+@mixin ellipsis($clamp:2) {
+	word-break: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $clamp;
+	-webkit-box-orient: vertical;
+}
+
+@mixin overhide($width: 200) {
+	width:$width + 'upx';
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+// 默认定位布局
+@mixin pos-box($position:absolute,$top:auto,$right:auto,$bottom:auto,$left:auto){
+  position: $position;
+  top: $top;
+  bottom: $bottom;
+  right: $right;
+  left: $left;
+}

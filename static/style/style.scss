@@ -1,0 +1,18 @@
+@import 'static/style/variables.scss';
+@import 'static/style/mixins.scss';
+@import 'static/style/index.scss';
+
+.bg-fff {
+	background-color: #fff;
+}
+
+.m-b-20 {
+	margin-bottom: 20rpx;
+}
+
+/*超出部分省略号*/
+.job-inline {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+}
