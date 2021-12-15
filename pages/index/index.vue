@@ -11,14 +11,19 @@
 			</view>
 		</u-navbar>
 		<!-- 顶部tab -->
-		<view class="top-tab-block m-b-20 p-l-r-30">
-			<u-tabs 
-				:list="topTabList" :current="tabIndex" lineWidth="20" lineHeight="4" lineColor="#F56718"
-				:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '32rpx'}"
-				:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
-				itemStyle="height: 80rpx;">
-			</u-tabs>
-		</view>
+		<u-sticky :offset-top="nav.top + nav.height">
+			<view style="width: 750rpx;" class="bg-fff border-box">
+				<view class="top-tab-block m-b-20 p-l-r-30">
+					<u-tabs 
+						:list="topTabList" :current="tabIndex" lineWidth="20" lineHeight="4" lineColor="#F56718"
+						:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '32rpx'}"
+						:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
+						itemStyle="height: 80rpx;">
+					</u-tabs>
+				</view>
+			</view>
+			
+		</u-sticky>
 		<!-- 金刚区 -->
 		<view class="m-b-20">
 			<u-grid :border="false" col="5">
@@ -29,7 +34,7 @@
 			</u-grid>
 		</view>
 		<!-- 轮播图 -->
-		<view class="p-l-r-30">
+		<view class="bg-F8F8F8 p-t-20 p-l-30 p-r-30">
 			<u-swiper :list="banners" height="300rpx" @change="e => bannerIndex = e.current" :autoplay="false">
 				<view slot="indicator" class="indicator">
 					<view class="indicator__dot" v-for="(item, index) in banners" :key="index" :class="[index === bannerIndex && 'indicator__dot--active']"></view>
@@ -37,15 +42,15 @@
 			</u-swiper>
 		</view>
 		<!-- 卡片 -->
-		<view class="top-card-block">
-			<view class="card-item">
+		<view class="top-card-block bg-F8F8F8">
+			<view class="card-item bg-fff">
 				<view class="card-item-left">
 					<view class="card-item-title">周末兼职</view>
 					<view class="card-item-text">赚点零花钱</view>
 				</view>
 				<u-icon name="photo" :size="60"></u-icon>
 			</view>
-			<view class="card-item">
+			<view class="card-item bg-fff">
 				<view class="card-item-left">
 					<view class="card-item-title">周末兼职</view>
 					<view class="card-item-text">赚点零花钱</view>
@@ -54,7 +59,7 @@
 			</view>
 		</view>
 		<!-- 名企兼职 -->
-		<view class="mqjz-block p-l-r-30">
+		<view class="mqjz-block bg-F8F8F8 p-l-30 p-r-30 p-t-60 p-b-20">
 			<view class="mqjz-head m-b-20">
 				<view class="head-left-line"></view>名企兼职
 			</view>
@@ -75,8 +80,8 @@
 			</view>
 		</view>
 		<!-- 中间tab -->
-		<u-sticky offset-top="0">
-			<view class="bg-fff m-b-20 p-l-r-30">
+		<u-sticky :offset-top="nav.top + nav.height">
+			<view class="bg-fff m-b-20 p-l-r-30 center-tab-block">
 				<u-tabs
 					:list="centerTabList" :current="cTabIndex" lineWidth="20" lineHeight="2" lineColor="#F56718"
 					:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '30rpx'}"
@@ -84,27 +89,29 @@
 					itemStyle="height: 80rpx;">
 				</u-tabs>
 			</view>
-			
 		</u-sticky>
-		<!-- <view class="top-tab-block m-b-20 p-l-r-30">
-			<u-tabs 
-				:list="centerTabList" :current="cTabIndex" sticky lineWidth="20" lineHeight="2" lineColor="#F56718"
-				:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '30rpx'}"
-				:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
-				itemStyle="height: 80rpx;">
-			</u-tabs>
-		</view> -->
 		<!-- 底部兼职列表 -->
 		<view class="job-list bg-fff">
 			<view class="job-item" v-for="(item, index) in 9" :key="index">
-				<view class="job-item-left">
-					<image src="https://cdn.uviewui.com/uview/album/1.jpg" mode="aspectFill"></image>
-					<view class="">
-						<view>货拉拉</view>
-						<view class="job-text job-inline">1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你</view>
+				<view class="job-title">
+					<view class="job-title-left">
+						<text class="m-r-10 job-inline">在家线上学习PS做兼职在家线上学习PS做兼职在家线上学习PS做兼职</text>
+						<u-icon color="#3c9cff" size="15" name="level"></u-icon>
 					</view>
+					<view class="money c-F56718">200元/天</view>
 				</view>
-				<view class="">200/单</view>
+				<!-- 是否企业直招、是否热点招聘、工资结算方式、是否有提成、是否有免费培训、是否包吃、是否包住、是否有交通补贴、 -->
+				<view class="label-block p-t-b-20">
+					<view class="blue-tag">企业直招</view>
+					<view class="blue-tag orange">有提成</view>
+				</view>
+				<view class="company-info">
+					<view class="company-name">
+						<text class="m-r-10">上海为课网络科技有限公司</text>
+						<u-icon color="#3c9cff" size="15" name="level"></u-icon>
+					</view>
+					<view class="">江南</view>
+				</view>
 			</view>
 		</view>
 		
@@ -167,6 +174,15 @@
 				
 			}
 		},
+		computed:{
+			nav(){
+				const data = {}
+				const nav = uni.getMenuButtonBoundingClientRect()
+				data.top = nav.top
+				data.height = nav.height
+				return data
+			}
+		},
 		onLoad() {
 
 		},
@@ -203,8 +219,13 @@
 		right: 160rpx;
 	}
 	
+	/deep/.u-tag--mini.data-v-3732d7af {
+	    width: fit-content;
+	}
+	
 	.index-page {
 		padding-bottom: 30rpx;
+		background-color: #FFFFFF;
 	}
 	
 	.nav-left {
@@ -248,12 +269,10 @@
 	
 	.top-card-block {
 		display: flex;
-		width: 690rpx;
+		width: 750rpx;
 		box-sizing: border-box;
-		background: #fff;
 		border-radius: 12rpx;
-		margin: 0 30rpx;
-		margin-top: 20rpx;
+		padding: 20rpx 30rpx;
 		.card-item {
 			box-sizing: border-box;
 			display: flex;
@@ -261,6 +280,7 @@
 			justify-content: space-between;
 			width: 50%;
 			padding: 30rpx 50rpx 30rpx 30rpx;
+			background: #fff;
 			.card-item-left {
 				// margin-right: 60rpx;
 				.card-item-title {
@@ -282,7 +302,6 @@
 	
 	// 名企兼职
 	.mqjz-block {
-		margin-top: 60rpx;
 		.mqjz-head {
 			display: flex;
 			align-items: center;
@@ -360,32 +379,67 @@
 		}
 		
 	}
-		
+	
+	.center-tab-block {
+		height: 88rpx;
+	}
+	
 	.job-list {
 		.job-item {
 			box-sizing: border-box;
 			padding: 30rpx;
 			width: 100%;
 			border-bottom: 1rpx solid #f2f2f2;
-			display: flex;
-			.job-item-left {
+			// display: flex;
+			// justify-content: space-between;
+			.job-title {
 				display: flex;
 				align-items: center;
-				font-size: 28rpx;
+				justify-content: space-between;
+				font-size: 30rpx;
 				color: #303133;
-				>image {
-					display: block;
-					width: 80rpx;
-					height: 80rpx;
-					margin-right: 20rpx;
+				font-weight: bold;
+				.job-title-left {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 530rpx;
 				}
-				.job-text {
-					font-size: 22rpx;
-					color: #999;
-					font-weight: normal;
-					margin-top: 15rpx;
-					width: 100%;
-					width: 400rpx;
+				.money {
+					
+				}
+			}
+			
+			.label-block {
+				display: flex;
+				.blue-tag {
+					background: #3c9cff;
+					padding: 4rpx 10rpx;
+					border-radius: 3rpx;
+					font-size: 24rpx;
+					color: #fff;
+					margin-right: 10rpx;
+					border: 1rpx solid #3c9cff;
+					width: fit-content;
+					&.orange {
+						border: 1rpx solid #f9ae3d;
+						color: #f9ae3d;
+						background-color: #fdf6ec;
+					}
+				}
+				
+			}
+			
+			.company-info {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				color: #999;
+				font-size: 24rpx;
+				.company-name {
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 			

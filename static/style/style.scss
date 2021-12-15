@@ -6,12 +6,88 @@
 	background-color: #fff;
 }
 
-.m-b-20 {
-	margin-bottom: 20rpx;
+.bg-F8F8F8 {
+	background: #F8F8F8;
 }
 
-.p-l-r-30 {
-	padding: 0 30rpx;
+.c-F56718 {
+	color: #F56718;
+}
+
+@for $i from 1 through 100 {
+	.m-t-#{$i} {
+		margin-top: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.m-b-#{$i} {
+		margin-bottom: #{$i}rpx;
+	}
+}
+ 
+@for $i from 1 through 100 {
+	.m-l-#{$i} {
+		margin-left: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-r-#{$i} {
+		margin-right: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-l-r-#{$i} {
+		margin: 0 #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-t-b-#{$i} {
+		margin: #{$i}rpx 0;
+	}
+}
+
+@for $i from 1 through 100 {
+	.p-t-#{$i} {
+		padding-top: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.p-b-#{$i} {
+		padding-bottom: #{$i}rpx;
+	}
+}
+ 
+@for $i from 1 through 100 {
+	.p-l-#{$i} {
+		padding-left: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-r-#{$i} {
+		padding-right: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-l-r-#{$i} {
+		padding: 0 #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-t-b-#{$i} {
+		padding: #{$i}rpx 0;
+	}
+}
+
+.border-box {
+	box-sizing: border-box;
 }
 
 /*超出部分省略号*/
