@@ -27,7 +27,7 @@
 	.page {
 		background: #F8F8F8;
 		color: #303133;
-		padding: 0 30rpx;
+		// padding: 0 30rpx;
 		font-family: PingFangSC-Regular, PingFang SC;
 		// font-weight: 400;
 		min-height: 100vh;

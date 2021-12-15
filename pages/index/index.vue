@@ -1,6 +1,7 @@
 <template>
-	<view class="page">
-		<u-navbar :safeAreaInsetTop="true" :fixed="true" :placeholder="true" bgColor="#F8F8F8">
+	<view class="page index-page">
+		<!-- nav -->
+		<u-navbar :safeAreaInsetTop="true" :fixed="true" :placeholder="true" bgColor="#fff">
 			<view class="nav-left" slot="left">
 				<text class="city-text">广州</text>
 				<u-icon name="arrow-down" size="15"></u-icon>
@@ -9,9 +10,10 @@
 				<u-search placeholder="搜索你喜欢的兼职" v-model="keyword" shape="round" :showAction="false" :clearabled="true" @change="" @search="" @blur="" @focus=""></u-search>
 			</view>
 		</u-navbar>
-		<view class="top-tab-block m-b-20">
+		<!-- 顶部tab -->
+		<view class="top-tab-block m-b-20 p-l-r-30">
 			<u-tabs 
-				:list="topTabList" :current="tabIndex" sticky lineWidth="20" lineHeight="4" lineColor="#F56718"
+				:list="topTabList" :current="tabIndex" lineWidth="20" lineHeight="4" lineColor="#F56718"
 				:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '32rpx'}"
 				:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
 				itemStyle="height: 80rpx;">
@@ -27,11 +29,13 @@
 			</u-grid>
 		</view>
 		<!-- 轮播图 -->
-		<u-swiper :list="banners" height="300rpx" @change="e => bannerIndex = e.current" :autoplay="false">
-			<view slot="indicator" class="indicator">
-				<view class="indicator__dot" v-for="(item, index) in banners" :key="index" :class="[index === bannerIndex && 'indicator__dot--active']"></view>
-			</view>
-		</u-swiper>
+		<view class="p-l-r-30">
+			<u-swiper :list="banners" height="300rpx" @change="e => bannerIndex = e.current" :autoplay="false">
+				<view slot="indicator" class="indicator">
+					<view class="indicator__dot" v-for="(item, index) in banners" :key="index" :class="[index === bannerIndex && 'indicator__dot--active']"></view>
+				</view>
+			</u-swiper>
+		</view>
 		<!-- 卡片 -->
 		<view class="top-card-block">
 			<view class="card-item">
@@ -50,25 +54,57 @@
 			</view>
 		</view>
 		<!-- 名企兼职 -->
-		<view class="mqjz-block">
+		<view class="mqjz-block p-l-r-30">
 			<view class="mqjz-head m-b-20">
 				<view class="head-left-line"></view>名企兼职
 			</view>
 			<view class="mqjz-tip m-b-20">工作好~环境好~福利更好~</view>
-			<view class="job-list">
-				<view v-for="(item, index) in 3" :key="index">
-					<view class="job-item m-b-20">
-						<view class="job-item-left">
-							<image src="https://cdn.uviewui.com/uview/album/1.jpg" mode="aspectFill"></image>
-							<view class="">
-								<view>货拉拉</view>
-								<view class="job-text job-inline">1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你</view>
-							</view>
-						</view>
-						
-						<view class="">200/单</view>
+			<view class="jz-item m-b-20">
+				<view class="jz-item-left">
+					<image src="https://cdn.uviewui.com/uview/album/1.jpg" mode="aspectFill"></image>
+					<view class="">
+						<view>货拉拉</view>
+						<view class="jz-text job-inline">1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你</view>
 					</view>
 				</view>
+				<view class="">200/单</view>
+			</view>
+			<view class="more-item m-b-20">
+				更多名企兼职，点这里发现！>
+				<image src="@/static/images/icon/index/search-more.png" mode="aspectFill" class="bg"></image>
+			</view>
+		</view>
+		<!-- 中间tab -->
+		<u-sticky offset-top="0">
+			<view class="bg-fff m-b-20 p-l-r-30">
+				<u-tabs
+					:list="centerTabList" :current="cTabIndex" lineWidth="20" lineHeight="2" lineColor="#F56718"
+					:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '30rpx'}"
+					:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
+					itemStyle="height: 80rpx;">
+				</u-tabs>
+			</view>
+			
+		</u-sticky>
+		<!-- <view class="top-tab-block m-b-20 p-l-r-30">
+			<u-tabs 
+				:list="centerTabList" :current="cTabIndex" sticky lineWidth="20" lineHeight="2" lineColor="#F56718"
+				:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '30rpx'}"
+				:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
+				itemStyle="height: 80rpx;">
+			</u-tabs>
+		</view> -->
+		<!-- 底部兼职列表 -->
+		<view class="job-list bg-fff">
+			<view class="job-item" v-for="(item, index) in 9" :key="index">
+				<view class="job-item-left">
+					<image src="https://cdn.uviewui.com/uview/album/1.jpg" mode="aspectFill"></image>
+					<view class="">
+						<view>货拉拉</view>
+						<view class="job-text job-inline">1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你</view>
+					</view>
+				</view>
+				<view class="">200/单</view>
 			</view>
 		</view>
 		
@@ -116,6 +152,19 @@
 					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
 					'https://cdn.uviewui.com/uview/swiper/swiper1.png',
 				],
+				cTabIndex: 0, // 当前选中tab
+				centerTabList:[
+					{
+						name: '推荐'
+					}, {
+						name: '附近'
+					},{
+						name: '推荐'
+					}, {
+						name: '附近'
+					},
+				],
+				
 			}
 		},
 		onLoad() {
@@ -153,6 +202,11 @@
 	/deep/.u-navbar__content__right.data-v-95dec1ae {
 		right: 160rpx;
 	}
+	
+	.index-page {
+		padding-bottom: 30rpx;
+	}
+	
 	.nav-left {
 		display: flex;
 		align-items: center;
@@ -194,10 +248,11 @@
 	
 	.top-card-block {
 		display: flex;
-		width: 100%;
-		// padding: 30rpx 0;
+		width: 690rpx;
+		box-sizing: border-box;
 		background: #fff;
 		border-radius: 12rpx;
+		margin: 0 30rpx;
 		margin-top: 20rpx;
 		.card-item {
 			box-sizing: border-box;
@@ -247,44 +302,93 @@
 			font-size: 22rpx;
 			margin-left: 10rpx;
 		}
-		
-		.job-list {
-			padding-bottom: 30rpx;
-			.job-item {
-				width: 100%;
-				box-sizing: border-box;
+		.jz-item {
+			width: 100%;
+			box-sizing: border-box;
+			display: flex;
+			// align-items: center;
+			justify-content: space-between;
+			padding: 30rpx;
+			color: #F56718;
+			font-size: 30rpx;
+			font-weight: bold;
+			background: #fff;
+			border-radius: 12rpx;
+			box-shadow: 0 3rpx 4rpx rgba($color: #000000, $alpha: 0.05);
+			.jz-item-left {
 				display: flex;
-				// align-items: center;
-				justify-content: space-between;
-				padding: 30rpx;
-				color: #F56718;
-				font-size: 30rpx;
-				font-weight: bold;
-				background: #fff;
-				border-radius: 12rpx;
-				box-shadow: 0 3rpx 4rpx rgba($color: #000000, $alpha: 0.05);
-				.job-item-left {
-					display: flex;
-					align-items: center;
-					font-size: 28rpx;
-					color: #303133;
-					>image {
-						display: block;
-						width: 80rpx;
-						height: 80rpx;
-						margin-right: 20rpx;
-					}
-					.job-text {
-						font-size: 22rpx;
-						color: #999;
-						font-weight: normal;
-						margin-top: 15rpx;
-						width: 100%;
-						width: 400rpx;
-					}
+				align-items: center;
+				font-size: 28rpx;
+				color: #303133;
+				>image {
+					display: block;
+					width: 80rpx;
+					height: 80rpx;
+					margin-right: 20rpx;
+				}
+				.jz-text {
+					font-size: 22rpx;
+					color: #999;
+					font-weight: normal;
+					margin-top: 15rpx;
+					width: 100%;
+					width: 400rpx;
+				}
+			}
+		}
+		
+		.more-item {
+			box-sizing: border-box;
+			background: #fff;
+			border-radius: 12rpx;
+			box-shadow: 0 3rpx 4rpx rgba($color: #000000, $alpha: 0.05);
+			padding: 0 30rpx;
+			width: 100%;
+			height: 140rpx;
+			line-height: 140rpx;
+			font-size: 24rpx;
+			color: #666;
+			position: relative;
+			.bg {
+				width: 140rpx;
+				height: 140rpx;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+		
+	}
+		
+	.job-list {
+		.job-item {
+			box-sizing: border-box;
+			padding: 30rpx;
+			width: 100%;
+			border-bottom: 1rpx solid #f2f2f2;
+			display: flex;
+			.job-item-left {
+				display: flex;
+				align-items: center;
+				font-size: 28rpx;
+				color: #303133;
+				>image {
+					display: block;
+					width: 80rpx;
+					height: 80rpx;
+					margin-right: 20rpx;
+				}
+				.job-text {
+					font-size: 22rpx;
+					color: #999;
+					font-weight: normal;
+					margin-top: 15rpx;
+					width: 100%;
+					width: 400rpx;
 				}
 			}
 			
 		}
-	}
+	}	
 </style>

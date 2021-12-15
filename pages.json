@@ -28,28 +28,12 @@
 	},
 	"subPackages": [
 		{
-			"root": "packagePartTime"
-			/* "pages": [{
-				"path": "index",
-				"style": {
-					"navigationBarTitleText": "潮领异界",
-					"navigationStyle": "custom",
-					"enablePullDownRefresh": false
-				}
-			}] */
+			"root": "packagePartTime",
+			"pages": []
 		},
 		{
 			"root": "packageUser",
-			"pages": [
-				/* {
-					"path": "index",
-					"style": {
-						"navigationBarTitleText": "区域规划",
-						"navigationStyle": "custom",
-						"enablePullDownRefresh": false
-					}
-				} */
-			]
+			"pages": []
 		}
 	],
 	"tabBar": {
