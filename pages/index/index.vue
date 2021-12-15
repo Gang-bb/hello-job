@@ -177,9 +177,15 @@
 		computed:{
 			nav(){
 				const data = {}
+				// #ifdef MP-WEIXIN
 				const nav = uni.getMenuButtonBoundingClientRect()
 				data.top = nav.top
 				data.height = nav.height
+				// #endif
+				// #ifdef H5
+				data.top = 0
+				data.height = 0
+				// #endif
 				return data
 			}
 		},
