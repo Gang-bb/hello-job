@@ -11,7 +11,7 @@
 				</view>
 				<!-- 是否企业直招、是否热点招聘、工资结算方式、是否有提成、是否有免费培训、是否包吃、是否包住、是否有交通补贴、 -->
 				<view v-if="item.labels && item.labels.length!==0" class="label-block row flex-wrap p-t-b-20">
-					<view v-for="(v,i) in item.labels" :key="i" class="blue-tag m-b-10" :class="{'orange': v.blue==1 }">{{v.text}}</view>
+					<view v-for="(v,i) in item.labels" :key="i" class="blue-tag m-b-20" :class="{'orange': v.blue==1 }">{{v.text}}</view>
 					<!-- <view class="blue-tag orange">有提成</view> -->
 				</view>
 				<view class="company-info">
@@ -73,11 +73,11 @@
 			.label-block {
 				.blue-tag {
 					background: #3c9cff;
-					padding: 4rpx 10rpx;
+					padding: 0rpx 4rpx;
 					border-radius: 3rpx;
-					font-size: 24rpx;
+					font-size: 20rpx;
 					color: #fff;
-					margin-right: 10rpx;
+					margin-right: 20rpx;
 					border: 1rpx solid #3c9cff;
 					width: fit-content;
 					&.orange {
