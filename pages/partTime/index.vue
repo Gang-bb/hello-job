@@ -10,8 +10,8 @@
 					</view>
 				</view>
 				<!-- 筛选下拉框 -->
-				<view v-if="show" class="mask" @click="handler().closeMask()"></view>
-				<view v-if="show" class="bg-fff select-menu-block" :style="{'--top': sysNav.top + sysNav.height + 38}">
+				<view v-if="show" class="mask" :style="{'--top':sysNav.top + sysNav.height + 38 }" @click="()=>{handler().closeMask()}"></view>
+				<view v-if="show" class="bg-fff select-menu-block">
 					<!-- 类型 -->
 					<view v-if="current===0" class="">
 						类型
