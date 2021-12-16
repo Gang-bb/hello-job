@@ -1,18 +1,11 @@
 // 
-$primary-color: #29ABF6;
-$primary-color-active: #0099ff;
-$line-color:rgba(240,243,245,1);
-$text-color: #0077ff;
-$header-color: #00143a;
+$primary-color: #F56718;
+$primary-color-active: rgba($color: #F56718, $alpha: 0.8);
+$font-color: #303133;
+$default-bg-color: #F8F8F8;
 
 // 主题色
-$theme-color: #29ABF6;
-$theme-active-color: #159FED;
-$navbar-bg-color: #1A9AFE;
-$theme-background-color: #29ABF6;
+$theme-color: #F56718;
+$theme-active-color: rgba($color: #F56718, $alpha: 0.8);
 $border-color: #EEEEEE;
-$sumbit-background-color: #29ABF6;
-$active-sumbit-background-color: #0099ff;
-$orange-background-color: #feb906;
-$active-orange-background-color: #ffcb46;
-$backage-color: #F2F3F7;
+$orange-background-color: #fdf6ec;
