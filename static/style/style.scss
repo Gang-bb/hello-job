@@ -1,13 +1,37 @@
 @import 'static/style/variables.scss';
 @import 'static/style/mixins.scss';
 @import 'static/style/index.scss';
+@import 'static/style/flex.scss';
+@import 'static/style/common.scss';
 
 .bg-fff {
 	background-color: #fff;
 }
 
-.m-b-20 {
-	margin-bottom: 20rpx;
+.bg-F8F8F8 {
+	background: $default-bg-color;
+}
+
+.box-shadow {
+	box-shadow: 0 3rpx 4rpx rgba($color: #000000, $alpha: 0.05);
+}
+
+.main-color {
+	color: $theme-color;
+}
+
+.color {
+	color: $font-color;
+	&.main {
+		color: $theme-color;
+	}
+	&.white {
+		color: #FFFFFF;
+	}
+}
+
+.border-box {
+	box-sizing: border-box;
 }
 
 /*超出部分省略号*/
@@ -15,4 +39,8 @@
   overflow: hidden !important;
   text-overflow: ellipsis;
   white-space: nowrap !important;
+}
+
+.bottom-line {
+	border-bottom: 1rpx solid $border-color;
 }

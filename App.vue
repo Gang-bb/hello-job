@@ -5,15 +5,23 @@
 // </style> -->
 
 <script>
+	import {mapActions} from 'vuex'
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			// console.log('App Launch')
 		},
 		onShow: function() {
-			console.log('App Show')
+			this.GetSystemInfo()
+			// console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
+		},
+		methods:{
+			...mapActions(['GetSystemInfo']),
+			/* ...mapMutations([
+			  'SET_SYSTEM_NAV'
+			]), */
 		}
 	}
 </script>
@@ -27,7 +35,7 @@
 	.page {
 		background: #F8F8F8;
 		color: #303133;
-		padding: 0 30rpx;
+		// padding: 0 30rpx;
 		font-family: PingFangSC-Regular, PingFang SC;
 		// font-weight: 400;
 		min-height: 100vh;

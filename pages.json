@@ -4,18 +4,22 @@
 			"path": "pages/index/index",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
 			}
 		},{
 			"path": "pages/partTime/index",
 			"style": {
-				"navigationBarTitleText": "全部兼职"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "全部兼职",
+				"enablePullDownRefresh": true
 			}
 		},{
 			"path": "pages/user/index",
 			"style": {
-				"navigationBarTitleText": "个人中心"
-				// "navigationStyle": "custom",
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
 				// "enablePullDownRefresh": false
 			}
 		}
@@ -26,6 +30,16 @@
 		"navigationBarBackgroundColor": "#F56718",
 		"backgroundColor": "#F8F8F8"
 	},
+	"subPackages": [
+		{
+			"root": "packagePartTime",
+			"pages": []
+		},
+		{
+			"root": "packageUser",
+			"pages": []
+		}
+	],
 	"tabBar": {
 		"color": "#bfbfbf",
 		"selectedColor": "#F56718",

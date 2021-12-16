@@ -1,0 +1,90 @@
+
+@for $i from 1 through 100 {
+	.f-s-#{$i} {
+		font-size: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.m-t-#{$i} {
+		margin-top: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.m-b-#{$i} {
+		margin-bottom: #{$i}rpx;
+	}
+}
+ 
+@for $i from 1 through 100 {
+	.m-l-#{$i} {
+		margin-left: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-r-#{$i} {
+		margin-right: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-l-r-#{$i} {
+		margin: 0 #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m-t-b-#{$i} {
+		margin: #{$i}rpx 0;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.m--#{$i} {
+		margin: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.p-t-#{$i} {
+		padding-top: #{$i}rpx;
+	}
+}
+
+@for $i from 1 through 100 {
+	.p-b-#{$i} {
+		padding-bottom: #{$i}rpx;
+	}
+}
+ 
+@for $i from 1 through 100 {
+	.p-l-#{$i} {
+		padding-left: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-r-#{$i} {
+		padding-right: #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-l-r-#{$i} {
+		padding: 0 #{$i}rpx;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-t-b-#{$i} {
+		padding: #{$i}rpx 0;
+	}
+}
+  
+@for $i from 1 through 100 {
+	.p-#{$i} {
+		padding: #{$i}rpx;
+	}
+}
