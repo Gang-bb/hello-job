@@ -6,8 +6,8 @@
 					<text class="city-text">广州</text>
 					<u-icon name="arrow-down" size="15"></u-icon>
 				</view>
-				<view class="m-l-20">
-					<u-search placeholder="搜索你喜欢的兼职" disabled v-model="keyword" shape="round" :showAction="false" :clearabled="true" height="46"></u-search>
+				<view class="m-l-20" style="width: 400rpx;">
+					<u-search placeholder="搜索你喜欢的兼职" disabled v-model="keyword" shape="round" :showAction="false" :clearabled="true" height="54"></u-search>
 				</view>
 			</view>
 		</u-navbar>
@@ -28,7 +28,7 @@
 <style lang="scss" scoped>
 	/* #ifdef H5 */
 	.u-search {
-		width: 520rpx;
+		width: 550rpx;
 	}
 	/* #endif */
 	

@@ -96,7 +96,7 @@
 		color: #F56718;
 	}
 	.circleprogress .wrapper{
-		width: 78rpx;
+		width: 85rpx;
 		height: 200rpx;
 		overflow: hidden;
 		margin-top: 45rpx;
@@ -114,7 +114,7 @@
 	}
 	.circleprogress .rightprogress{
 		border-left: 30rpx solid #F56718;
-		margin-left: -80rpx;
+		margin-left: -81rpx;
 	}
     
 </style>
