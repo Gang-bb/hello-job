@@ -28,7 +28,7 @@
 <style lang="scss" scoped>
 	/* #ifdef H5 */
 	.u-search {
-		width: 550rpx;
+		width: 520rpx;
 	}
 	/* #endif */
 	

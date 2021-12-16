@@ -80,7 +80,7 @@
 <style lang="scss" scoped>
 	.top-block {
 		width: 750rpx;
-		height: 550rpx;
+		height: 600rpx;
 		position: relative;
 		.user-box {
 			width: 750rpx;
