@@ -5,23 +5,25 @@
 			<view class="">
 				<view class="bg-fff p-t-b-20 row f-s-22 top-cate-block">
 					<view v-for="(item,index) in topList" :key="index" class="row-center select-box" @click="()=>{handler().openSelect(index)}">
-						<text class="m-r-10" :class="{'main-color': current===index }">{{item.label}}</text>
-						<u-icon :name="current===index? 'arrow-up' : 'arrow-down'" :color="current===index? '#F56718' : ''" size="9"></u-icon>
+						<text class="m-r-10" :class="{'main-color': current === index }">{{item.label}}</text>
+						<u-icon :name="current === index? 'arrow-up' : 'arrow-down'" :color="current === index? '#F56718' : ''" size="9"></u-icon>
 					</view>
 				</view>
 				<!-- 筛选下拉框 -->
 				<view v-if="show" class="mask" :style="{'--top':sysNav.top + sysNav.height + 50 }" @click="()=>{handler().closeMask()}" @touchmove.stop.prevent="moveHandle"></view>
-				<scroll-view scroll-y="true" v-if="show" class="bg-fff p-30 select-menu-block" :style="{'--top':sysNav.top + sysNav.height + 50 }">
+				<view scroll-y="true" v-if="show" class="bg-fff p-30 select-menu-block" :style="{'--top':sysNav.top + sysNav.height + 50 }">
 					<view>
 						<!-- 类型 -->
-						<view v-if="current===0" class="type-box">
-							<view class="type-item m-b-20">全部</view>
-							<view v-for="(tv,ti) in typeList" :key="ti" class="">
-								<view class="m-b-10 f-s-28">{{tv.title}}</view>
-								<view class="type-list m-b-20 row-between">
-									<view class="type-item m-b-20" :class="{'active': typeIndex===ti2}" v-for="(tv2,ti2) in tv.children" :key="ti2" @click="typeIndex=ti2">{{tv2.label}}</view>
+						<view v-if="current===0">
+							<scroll-view scroll-y="true" class="type-box">
+								<view class="type-item m-b-20">全部</view>
+								<view v-for="(tv,ti) in typeList" :key="ti" class="">
+									<view class="m-b-10 f-s-28">{{tv.title}}</view>
+									<view class="type-list m-b-20 row-between">
+										<view class="type-item m-b-20" :class="{'active': typeIndex===ti2}" v-for="(tv2,ti2) in tv.children" :key="ti2" @click="typeIndex=ti2">{{tv2.label}}</view>
+									</view>
 								</view>
-							</view>
+							</scroll-view>
 						</view>
 						<!-- 区域 -->
 						<view v-if="current===1" class="">
@@ -38,7 +40,7 @@
 							筛选
 						</view>
 					</view>
-				</scroll-view>
+				</view>
 			</view>
 			
 		</u-sticky>
@@ -56,16 +58,23 @@
 		data() {
 			return {
 				show: false, // 筛选下拉框显隐
-				current:-1,
+				current:-1, // 类型
+				areaCurrent:-1, // 区域
+				sortCurrent:-1, // 排序
+				selectCurrent:-1, // 筛选
 				topList:[
 					{
-						label: '类型'
+						label: '类型',
+						open: false
 					},{
-						label: '区域'
+						label: '区域',
+						open: false
 					},{
-						label: '排序'
+						label: '排序',
+						open: false
 					},{
-						label: '筛选'
+						label: '筛选',
+						open: false
 					},
 				],
 				typeIndex: -1,
@@ -78,6 +87,47 @@
 							{label: '手机任务'},
 							{label: '厂工'},
 							{label: '派单'},
+						]
+					},{
+						title: '市场推广',
+						children:[
+							{label: '网点'},
+							{label: '短视频'},
+							{label: '电商'},
+							{label: '地推'},
+							{label: '广告监测'},
+							{label: '代理'},
+							{label: '促销'},
+							{label: '销售导购'},
+						]
+					},{
+						title: '服务行业',
+						children:[
+							{label: '店员'},
+							{label: '厨师'},
+							{label: '美容美甲'},
+							{label: '送餐员'},
+							{label: '服务员'},
+						]
+					},{
+						title: '教育行业',
+						children:[
+							{label: '助教'},
+							{label: '机构教师'},
+							{label: '才艺教师'},
+							{label: '课程顾问'},
+							{label: '线上教师'},
+							{label: '家教'},
+						]
+					},{
+						title: '会展演出',
+						children:[
+							{label: '助教'},
+							{label: '机构教师'},
+							{label: '才艺教师'},
+							{label: '课程顾问'},
+							{label: '线上教师'},
+							{label: '家教'},
 						]
 					}
 				],
@@ -351,14 +401,15 @@
 						this.show = false
 						this.current = -1
 					},
+					// 点击打开下拉框
 					openSelect: (index)=> {
+						let idx = this.current
 						this.current = index
-						if(this.current === index && this.show===true) {
+						this.show = true
+						if(idx == index) {
 							this.show = false
 							this.current = -1
-							return
 						}
-						this.show = !this.show
 					},
 				}
 			}
@@ -395,7 +446,7 @@
 		
 	.select-menu-block {
 		min-height: 300rpx;
-		max-height: 80%;
+		max-height: 800rpx;
 		border-radius: 0 0 12rpx 12rpx;
 		position: fixed;
 		/* #ifdef MP-WEIXIN */
@@ -407,8 +458,12 @@
 		left: 0;
 		right: 0;
 		box-sizing: border-box;
+		overflow-y: hidden;
 		
 		.type-box {
+			min-height: 300rpx;
+			max-height: 800rpx;
+			overflow-y: auto;
 			.type-list {
 				box-sizing: border-box;
 				width: 100%;
