@@ -10,23 +10,22 @@
 					</view>
 				</view>
 				<!-- 筛选下拉框 -->
-				<DropdownMenu ref="dropdown" @mask="()=>{handler().closeMask()}">
+				<DropdownMenu ref="dropdown" @mask="()=>handler().closeMask()">
 					<!-- 类型 -->
 					<view v-if="current===0">
-						<DropdownItem :isAllType.sync="isAllType" :list.sync="typeList" menuType="type"
-							 @select="(e)=>{handler().selectType(e)}" @submit="()=>{handler().submitType(val)}" />
+						<DropdownItem :list.sync="typeList" menuType="type" @submit="(e)=>handler().submitType(e)" />
 					</view>
 					<!-- 区域 -->
 					<view v-if="current===1">
-						<DropdownItem menuType="area" :list="areaList" @submitArea="(val)=>{handler().submitArea(val)}" />
+						<DropdownItem menuType="area" :list="areaList" @submitArea="(val)=>handler().submitArea(val)" />
 					</view>
 					<!-- 排序 -->
 					<view v-if="current===2">
-						<DropdownItem menuType="sort" :list="sortList" :sortIdx.sync="sortIdx" @selectSort="(val)=>{handler().selectSort(val)}" />
+						<DropdownItem menuType="sort" :list="sortList" :sortIdx.sync="sortIdx" @selectSort="(val)=>handler().selectSort(val)" />
 					</view>
 					<!-- 筛选 -->
 					<view v-if="current===3">
-						<DropdownItem menuType="filter" :list="filterList" @submitFilter="(arr, status)=>{handler().submitFilter(arr, status)}" />
+						<DropdownItem menuType="filter" :list="filterList" @submitFilter="(arr, status)=>handler().submitFilter(arr, status)" />
 					</view>
 					
 				</DropdownMenu>
@@ -47,7 +46,6 @@
 		components: { CommonNav, JobList, DropdownMenu, DropdownItem },
 		data() {
 			return {
-				show: false, // 筛选下拉框显隐
 				current:-1, // 下拉选中索引
 				topList:[ // 下拉框菜单
 					{
@@ -64,8 +62,6 @@
 						open: false
 					},
 				],
-				isAllType: true, // 是否选中全部类型
-				typeIndex: -1, // 类型选中索引
 				typeList:[ // 类型下拉框数据
 					{
 						title: '热门推荐',
@@ -119,14 +115,11 @@
 						]
 					}
 				],
-				sortIdx: -1, // 排序选中索引
 				sortList:[ // 排序下拉框数据
 					{label: '综合排序'},
 					{label: '最新发布'},
 					{label: '离我最近'},
 				],
-				isAllArea: false, // 是否选中全部区域
-				areaIdx: -1, // 区域选中索引
 				areaList: [ // 区域下拉框数据
 					{name:'兴宁'},
 					{name:'青秀'},
@@ -174,7 +167,6 @@
 						]
 					}
 				],
-				isQiYe: false, // 是否只看企业认证
 				jobList:[ // 工作列表
 					{
 						title:'在家线上学习PS做兼职',
@@ -438,16 +430,14 @@
 
 		},
 		methods: {
-			moveHandle() {},
 			handler(){
 				return {
-					// 遮罩点击时间
+					// 遮罩点击事件
 					closeMask: ()=>{
 						this.handler().closeSelect()
 					},
 					// 关闭下拉框
 					closeSelect:()=>{
-						this.show = false
 						this.$refs.dropdown.show = false
 						this.current = -1
 					},
@@ -455,18 +445,11 @@
 					openSelect: (index)=> {
 						let idx = this.current
 						this.current = index
-						this.show = true
 						this.$refs.dropdown.show = true
 						if(idx == index) {
-							this.show = false
 							this.$refs.dropdown.show = false
 							this.current = -1
 						}
-					},
-					// 选中类型
-					selectType: (e)=> {
-						const { item,index } = e
-						this.isAllType = item.check==true ? false : true
 					},
 					// 确定类型提交
 					submitType:(val)=>{
@@ -475,7 +458,7 @@
 					},
 					// 选中排序
 					selectSort:(val) => {
-						console.log('选中排序', val);
+						console.log('选中排序2', val);
 						const {item,index} = val
 						this.sortIdx = index
 						this.handler().closeSelect()
