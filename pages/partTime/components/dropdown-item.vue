@@ -131,6 +131,7 @@
 			// 选中类型
 			select(item, index) {
 				item.check = !item.check
+				this.isAllType = item.check===true? false: true
 				this.newList.forEach((v=>{
 					v.children.forEach((t, i)=>{
 						if( item.label !== t.label ) {
@@ -138,7 +139,7 @@
 						}
 					})
 				}))
-				this.$emit('select', {item, index})
+				// this.$emit('select', {item, index})
 			},
 			// 选中类型提交
 			submit() {
@@ -164,7 +165,7 @@
 			},
 			// 确定区域提交
 			submitArea(){
-				console.log('确定区域提交');
+				// console.log('确定区域提交');
 				const { areaIdx, newList } = this
 				let selectData = {}
 				selectData = newList[areaIdx]
@@ -172,6 +173,7 @@
 			},
 			// 选中排序
 			selectSort(item, index) {
+				// console.log('选中排序1', item,index);
 				this.$emit('selectSort', {item, index})
 			},
 			// 选中筛选
@@ -189,6 +191,7 @@
 			},
 			// 重置筛选
 			resetFilter(){
+				this.isQiYe = false
 				this.newList.forEach(item=>{
 					item.children.forEach((v, i)=>{
 						v.check = i===0 ? true : false
@@ -201,7 +204,7 @@
 			},
 			// 是否只看企业认证
 			changeQY(e){
-				console.log('change', e);
+				// console.log('change', e);
 			},
 		}
 	}
