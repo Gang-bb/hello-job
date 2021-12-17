@@ -27,7 +27,7 @@ const store = new Vuex.Store({
 			data.top = 0
 			data.height = 0
 			// #endif
-			console.log('GetSystemInfo---', data);
+			// console.log('GetSystemInfo---', data);
 			commit('SET_SYSTEM_NAV', data) // 设置设备类型
 		},
 	},
