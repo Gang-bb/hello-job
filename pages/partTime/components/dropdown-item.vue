@@ -88,7 +88,7 @@
 			},
 			sortIdx: {
 				type: Number,
-				default: -1
+				default: 0
 			},
 			list: {
 				type: Array,

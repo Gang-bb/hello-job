@@ -42,7 +42,7 @@
 }
   
 @for $i from 1 through 100 {
-	.m--#{$i} {
+	.m-#{$i} {
 		margin: #{$i}rpx;
 	}
 }

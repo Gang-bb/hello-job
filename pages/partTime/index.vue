@@ -115,6 +115,7 @@
 						]
 					}
 				],
+				sortIdx: 0,
 				sortList:[ // 排序下拉框数据
 					{label: '综合排序'},
 					{label: '最新发布'},

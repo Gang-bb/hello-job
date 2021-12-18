@@ -18,9 +18,7 @@
 			
 			<view class="my-profile box-shadow row-between bg-fff p-30 m-l-r-30">
 				<view class="my-profile-left">
-					<view class="my-profile-head row center m-b-20">
-						<view class="head-left-line m-r-10"></view>我的资料
-					</view>
+					<LineHead title="我的资料" class="m-b-20" />
 					<view class="f-s-24 m-b-20">企业都喜欢完善度比较高的资料哦~</view>
 					<view class="my-profile-btn">立即完善</view>
 				</view>
@@ -61,8 +59,9 @@
 <script>
 	import ProgressBar from './components/ProgressBar.vue'
 	import ProgressBa2 from './components/ProgressBa2.vue'
+	import LineHead from '@/components/layout/line-head.vue'
 	export default {
-		components: {ProgressBar, ProgressBa2},
+		components: {ProgressBar, ProgressBa2, LineHead},
 		data() {
 			return {
 				avater_url: require('@/static/images/icon/index/search-more.png'),
@@ -106,17 +105,6 @@
 			color: #999;
 			.my-profile-left {
 				width: 100%;
-				.my-profile-head {
-					font-size: 32rpx;
-					font-weight: bold;
-					color: #333;
-					.head-left-line {
-						width: 10rpx;
-						height: 30rpx;
-						border-radius: 6rpx;
-						background: #F56718;
-					}
-				}
 				.my-profile-btn {
 					width: 180rpx;
 					height: 54rpx;
@@ -134,6 +122,7 @@
 	
 	.menu-block {
 		border-radius: 12rpx;
+		overflow: hidden;
 	}
 	
 	.menu-item {
