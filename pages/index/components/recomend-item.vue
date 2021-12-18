@@ -3,7 +3,7 @@
 		<!-- 金刚区 -->
 		<view class="m-b-20">
 			<u-grid :border="false" col="5">
-				<u-grid-item v-for="(listItem,listIndex) in categorys" :key="listIndex">
+				<u-grid-item v-for="(listItem,listIndex) in categorys" :key="listIndex" @click="()=>handler().openPage(listItem)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="listItem.name" :size="40"></u-icon>
 					<text class="categorys-text">{{listItem.title}}</text>
 				</u-grid-item>
@@ -19,19 +19,12 @@
 		</view>
 		<!-- 卡片 -->
 		<view class="top-card-block bg-F8F8F8">
-			<view class="card-item row-between bg-fff">
+			<view v-for="(cardItem,cardIndex) in cardList" :key="cardIndex"  @click="()=>handler().openPage(cardItem)" class="card-item row-between bg-fff">
 				<view class="card-item-left">
-					<view class="card-item-title">周末兼职</view>
-					<view class="card-item-text">赚点零花钱</view>
+					<view class="card-item-title">{{cardItem.title}}</view>
+					<view class="card-item-text">{{cardItem.subTitle}}</view>
 				</view>
-				<u-icon name="photo" :size="60"></u-icon>
-			</view>
-			<view class="card-item row-between bg-fff">
-				<view class="card-item-left">
-					<view class="card-item-title">在线兼职</view>
-					<view class="card-item-text">在家就能做</view>
-				</view>
-				<u-icon name="home" :size="60"></u-icon>
+				<u-icon :name="cardItem.name" :size="60"></u-icon>
 			</view>
 		</view>
 		<!-- 名企兼职 -->
@@ -116,6 +109,17 @@
 					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
 					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
 					'https://cdn.uviewui.com/uview/swiper/swiper1.png',
+				],
+				cardList:[
+					{
+						title: '周末兼职',
+						subTitle: '赚点零花钱',
+						name:'photo'
+					},{
+						title: '在线兼职',
+						subTitle: '在家就能做',
+						name: 'home'
+					},
 				],
 				cTabIndex: 0, // 当前选中tab
 				centerTabList:[
@@ -389,7 +393,15 @@
 			...mapState(['sysNav'])
 		},
 		methods: {
-			
+			handler(){
+				return {
+					// 页面跳转
+					openPage:(listItem) => {
+						let params = JSON.stringify(listItem)
+						this.navigateTos(`/packageHome/hot-job?params=${params}`)
+					},
+				}
+			}
 		}
 	}
 </script>

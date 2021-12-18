@@ -7,14 +7,14 @@
 				"navigationBarTitleText": "首页",
 				"enablePullDownRefresh": true
 			}
-		},{
+		}, {
 			"path": "pages/partTime/index",
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "全部兼职",
 				"enablePullDownRefresh": true
 			}
-		},{
+		}, {
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "个人中心",
@@ -25,15 +25,53 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "hello-job",
-		"navigationBarBackgroundColor": "#F56718",
+		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"subPackages": [
+	"subPackages": [{
+			"root": "packageHome",
+			"pages": [{
+				"path": "city",
+				"style": {
+					"navigationBarTitleText": "选择城市",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "search",
+				"style": {
+					"navigationBarTitleText": "搜索",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "hot-job",
+				"style": {
+					"navigationBarTitleText": "热招兼职",
+					"enablePullDownRefresh": false
+				}
+
+			}]
+		},
 		{
 			"root": "packagePartTime",
-			"pages": []
+			"pages": [{
+				"path": "job-detail",
+				"style": {
+					"navigationBarTitleText": "兼职详情",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "company-detail",
+				"style": {
+					"navigationBarTitleText": "企业详情",
+					"enablePullDownRefresh": false
+				}
+
+			}]
 		},
 		{
 			"root": "packageUser",
