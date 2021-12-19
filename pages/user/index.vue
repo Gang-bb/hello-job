@@ -9,7 +9,7 @@
 					<view class="">
 						<view class="row center">
 							<text class="f-s-40 m-r-20">张*</text>
-							<u-tag text="去实名认证" type="warning" shape="circle"></u-tag>
+							<u-tag text="去实名认证" type="warning" shape="circle" @click="navigateTos('/packageUser/real-name')"></u-tag>
 						</view>
 						<view class="f-s-26 m-t-20">139******01</view>
 					</view>
@@ -30,7 +30,7 @@
 		</view>
 		
 		<view class="menu-item box-shadow m-t-30 m-l-30 m-r-30">
-			<u-cell title="报名记录" :border="false" isLink>
+			<u-cell title="报名记录" :border="false" isLink url="/packageUser/regist-record/index">
 				<u-badge slot="value" :isDot="true" type="error"></u-badge>
 			</u-cell>
 		</view>

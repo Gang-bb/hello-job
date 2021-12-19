@@ -75,7 +75,32 @@
 		},
 		{
 			"root": "packageUser",
-			"pages": []
+			"pages": [{
+				"path": "regist-record/index",
+				"style": {
+					"navigationBarTitleText": "报名记录",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+
+			}, {
+				"path": "regist-record/detail",
+				"style": {
+					"navigationBarTitleText": "报名详情",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+
+			}, {
+				"path": "real-name",
+				"style": {
+					"navigationBarTitleText": "实名认证",
+					"enablePullDownRefresh": false
+				}
+
+			}]
 		}
 	],
 	"tabBar": {

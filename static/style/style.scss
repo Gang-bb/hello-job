@@ -20,10 +20,6 @@
 	box-shadow: 0 3rpx 10rpx rgba($color: #000000, $alpha: 0.15);
 }
 
-.main-color {
-	color: $theme-color;
-}
-
 .color {
 	color: $font-color;
 	&.main {
@@ -39,8 +35,14 @@
 .c6 {
 	color: #999;
 }
-.cF56718 {
-	color: #F56718;
+.main-color {
+	color: $theme-color;
+}
+.c-blue {
+	color: $blue-color;
+}
+.c-white {
+	color: #FFFFFF;
 }
 
 .border-box {

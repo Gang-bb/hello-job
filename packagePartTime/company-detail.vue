@@ -10,7 +10,7 @@
 					<view class="f-s-24 c9">正在招聘以下岗位</view>
 				</view>
 			</view>
-			<view class="cF56718 f-s-28" @click="reLaunch('/page/index/index')">返回首页</view>
+			<view class="main-color f-s-28" @click="reLaunch('/page/index/index')">返回首页</view>
 		</view>
 		
 		<view class="bg-fff p-30">
@@ -26,7 +26,7 @@
 		</view>
 		
 		<view class="p-b-30 p-l-r-30">
-			<view class="f-s-26 m-b-20">附近3公里内有<text class="cF56718">{{jobList.length}}</text>个热门岗位:</view>
+			<view class="f-s-26 m-b-20">附近3公里内有<text class="main-color">{{jobList.length}}</text>个热门岗位:</view>
 			<JobList :list="jobList" type="simple" :listSty="listSty"></JobList>
 		</view>
 		
