@@ -88,3 +88,9 @@
 		padding: #{$i}rpx;
 	}
 }
+
+@for $i from 0 through 100 {
+	.b-r-#{$i} {
+		border-radius: #{$i}rpx;
+	}
+}

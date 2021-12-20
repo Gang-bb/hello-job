@@ -30,10 +30,13 @@
 			</view>
 		</view>
 		<view v-if="type==='simple'" class="">
-			<view v-for="(item,index) in list" :key="index" class="job-item simple-item box-shadow" :style="`background:url(${item.bg}) no-repeat; background-size:100% 100%;`">
+			<view v-for="(item,index) in list" :key="index" class="job-item simple-item box-shadow">
+				<view class="simple-item__bg">
+					<image :src="item.bg" mode="aspectFill"></image>
+				</view>
 				<view class="color f-s-30">{{item.title}}</view>
 				<view class="row-between m-t-20">
-					<text class="f-s-24 cF56718">{{item.money}}</text>
+					<text class="f-s-24 main-color">{{item.money}}</text>
 					<view class="type-btn" :class="{'red': item.type==1}">{{item.type==0? '兼职':'全职'}}</view>
 				</view>
 			</view>
@@ -187,6 +190,19 @@
 			margin-bottom: 20rpx;
 			background-color: #fff;
 			border-radius: 12rpx;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			&__bg {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
 		}
 		
 	}	

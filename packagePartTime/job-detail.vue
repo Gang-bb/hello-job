@@ -57,7 +57,7 @@
 			<LineHead title="温馨提醒" class="m-b-40 " />
 			<view class="row start m-t-30">
 				<u-icon name="info-circle" size="17" color="#F56718" class="m-r-6"></u-icon>
-				<text class="cF56718 f-s-22">凡涉及到工作内容不符,收费、违法信息传播的工作,请您警惕并收集关联证据向我们举报。</text>
+				<text class="main-color f-s-22">凡涉及到工作内容不符,收费、违法信息传播的工作,请您警惕并收集关联证据向我们举报。</text>
 			</view>
 		</view>
 		
