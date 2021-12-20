@@ -11,7 +11,7 @@
 					<u-icon name="arrow-right" size="15" color=""></u-icon>
 				</view>
 			</view>
-			<view class="u-demo-block__content">
+			<view class="p-b-30">
 				<!-- 注意，如果需要兼容微信小程序，最好通过setRules方法设置rules规则 -->
 				<u--form labelPosition="top" :model="model1" ref="form1" :labelStyle="labelStyle">
 					<u-form-item label="姓名" prop="userInfo.name" borderBottom ref="item1">
@@ -20,20 +20,30 @@
 				</u--form>
 				<u--form labelPosition="left" :model="model1" ref="form1" :labelStyle="labelStyle">
 					<u-form-item label="性别" prop="userInfo.sex" borderBottom ref="item1">
-						<u-radio-group v-model="sexvalue" placement="row" @change="groupChange">
-							<u-radio :customStyle="{marginBottom: '8px'}" v-for="(item, index) in sexlist"
-								:key="index" :label="item.name" :name="item.name" @change="radioChange">
+						<u-radio-group v-model="sexvalue" placement="row" @change="sexChange">
+							<u-radio :customStyle="{margin: ' 0 30rpx'}" activeColor="#F56718"
+								v-for="(item, index) in sexlist" :key="index" :label="item.name" :name="item.name"
+								@change="radioChange">
 							</u-radio>
 						</u-radio-group>
 					</u-form-item>
 				</u--form>
 				<u--form labelPosition="left" :model="model1" ref="form1" :labelStyle="labelStyle">
-					<u-form-item label="教育状态" prop="userInfo.sex" borderBottom ref="item1">
-						<u-radio-group v-model="sexvalue" placement="row" @change="groupChange">
-							<u-radio :customStyle="{marginBottom: '8px'}" v-for="(item, index) in sexlist"
-								:key="index" :label="item.name" :name="item.name" @change="radioChange">
+					<u-form-item label="教育状态" prop="userInfo.edu" borderBottom ref="item1">
+						<u-radio-group v-model="eduvalue" placement="row" @change="eduChange">
+							<u-radio :customStyle="{margin: '0 30rpx'}" activeColor="#F56718"
+								v-for="(item, index) in edulist" :key="index" :label="item.name" :name="item.name"
+								@change="radioChange">
 							</u-radio>
 						</u-radio-group>
+					</u-form-item>
+				</u--form>
+				<u--form labelPosition="top" :model="model1" ref="form1" :labelStyle="labelStyle">
+					<u-form-item label="所在城市" prop="userInfo.city" borderBottom ref="item1"
+						@click="cityShow = true; hideKeyboard()">
+						<u--input v-model="model1.userInfo.city" disabled disabledColor="#ffffff" placeholder="请选择所在城市"
+							border="none"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
 					</u-form-item>
 				</u--form>
 				<u--form labelPosition="top" :model="model1" ref="form1" :labelStyle="labelStyle">
@@ -43,20 +53,24 @@
 							placeholder="请选择出生年月" border="none"></u--input>
 						<u-icon slot="right" name="arrow-right"></u-icon>
 					</u-form-item>
+
+					<u-form-item label="最高学历" prop="userInfo.eduGrade" borderBottom
+						@click="showEduGrade = true; hideKeyboard()" ref="item1">
+						<u--input v-model="model1.userInfo.eduGrade" disabled disabledColor="#ffffff"
+							placeholder="请选择最高学历" border="none"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
 				</u--form>
-				
-				<u-button type="primary" text="提交" customStyle="margin-top: 50px" @click="submit"></u-button>
-				<u-action-sheet :show="showSex" :actions="actions" title="请选择性别" description="如果选择保密会报错"
-					@close="showSex = false" @select="sexSelect">
+				<u-action-sheet :show="showEduGrade" :actions="actions" title="请选择性别" description="如果选择保密会报错"
+					@close="showEduGrade = false" @select="eduGradeSelect">
 				</u-action-sheet>
-				<u-calendar :show="showCalendar" mode="range" @confirm="calendarConfirm" @close="calendarClose"
-					startText="住店" endText="离店" confirmDisabledText="请选择离店日期" :formatter="formatter"></u-calendar>
-				<u-code ref="uCode" @change="codeChange" seconds="20" @start="disabled1 = true"
-					@end="disabled1 = false"></u-code>
 				<u-datetime-picker :show="showBirthday" :value="birthday" mode="date" closeOnClickOverlay
 					@confirm="birthdayConfirm" @cancel="birthdayClose" @close="birthdayClose"></u-datetime-picker>
+				<u-picker :show="cityShow" ref="uPicker" :columns="columns" @confirm="confirm" @cancel="cityShow=false"
+					@change="changeHandler"></u-picker>
 			</view>
 		</view>
+		<u-button text="保存" shape="circle" color="#F56718" size="large" @click="submit"></u-button>
 	</view>
 </template>
 
@@ -79,35 +93,62 @@
 						disabled: false
 					}
 				],
-				// u-radio-group的v-model绑定的值如果设置为某个radio的name，就会被默认选中
 				sexvalue: '男',
+				// 基本案列数据
+				edulist: [{
+						name: '在读',
+						disabled: false
+					},
+					{
+						name: '已毕业',
+						disabled: false
+					}
+				],
+				eduvalue: '在读',
 				fileList1: [],
 				disabled1: false,
 				tips: '',
 				value: '',
-				showCalendar: false,
 				showBirthday: false,
 				model1: {
 					userInfo: {
 						name: '楼兰',
 						sex: '',
-						birthday: ''
+						city: '',
+						birthday: '',
+						edu: '',
+						eduGrade: '',
 					},
 					radiovalue1: '苹果',
 					checkboxValue1: [],
 					intro: '',
 					code: ''
 				},
-				showSex: false,
+				showEduGrade: false,
 				birthday: Number(new Date()),
+				cityShow: false,
+				columns: [
+					['中国', '美国'],
+					['深圳', '厦门', '上海', '拉萨']
+				],
+				columnData: [
+					['深圳', '厦门', '上海', '拉萨'],
+					['得州', '华盛顿', '纽约', '阿拉斯加']
+				],
 				actions: [{
-						name: '男',
+						name: '初中',
 					},
 					{
-						name: '女',
+						name: '高中',
 					},
 					{
-						name: '保密',
+						name: '本科',
+					},
+					{
+						name: '研究生',
+					},
+					{
+						name: '博士',
 					},
 				],
 				rules: {
@@ -133,11 +174,11 @@
 						message: '请填写4位验证码',
 						trigger: ['blur']
 					},
-					'userInfo.sex': {
+					'userInfo.eduGrade': {
 						type: 'string',
-						max: 1,
+						max: 5,
 						required: true,
-						message: '请选择男或女',
+						message: '请选择最高学历',
 						trigger: ['blur', 'change']
 					},
 					radiovalue1: {
@@ -175,32 +216,6 @@
 						trigger: ['change']
 					},
 				},
-				radiolist1: [{
-						name: '苹果',
-						disabled: false
-					},
-					{
-						name: '香蕉',
-						disabled: false
-					},
-					{
-						name: '毒橙子',
-						disabled: false
-					}
-				],
-				checkboxList1: [{
-						name: '羽毛球',
-						disabled: false
-					},
-					{
-						name: '跑步',
-						disabled: false
-					},
-					{
-						name: '爬山',
-						disabled: false
-					}
-				]
 			}
 		},
 		onReady() {
@@ -215,7 +230,10 @@
 					message: '上传中'
 				})
 			},
-			groupChange(n) {
+			sexChange(n) {
+				// console.log('groupChange', n);
+			},
+			eduChange(n) {
 				// console.log('groupChange', n);
 			},
 			radioChange(n) {
@@ -224,9 +242,9 @@
 			navigateBack() {
 				uni.navigateBack()
 			},
-			sexSelect(e) {
-				this.model1.userInfo.sex = e.name
-				this.$refs.form1.validateField('userInfo.sex')
+			eduGradeSelect(e) {
+				this.model1.userInfo.eduGrade = e.name
+				this.$refs.form1.validateField('userInfo.eduGrade')
 			},
 			change(e) {
 				// console.log(e);
@@ -241,35 +259,6 @@
 				}
 				return day
 			},
-			calendarConfirm(e) {
-				this.showCalendar = false
-				this.model1.hotel = `${e[0]} / ${e[e.length - 1]}`
-				this.$refs.form1.validateField('hotel')
-			},
-			codeChange(text) {
-				this.tips = text;
-			},
-			getCode() {
-				if (this.$refs.uCode.canGetCode) {
-					// 模拟向后端请求验证码
-					uni.showLoading({
-						title: '正在获取验证码'
-					})
-					setTimeout(() => {
-						uni.hideLoading();
-						// 这里此提示会被this.start()方法中的提示覆盖
-						uni.$u.toast('验证码已发送');
-						// 通知验证码组件内部开始倒计时
-						this.$refs.uCode.start();
-					}, 2000);
-				} else {
-					uni.$u.toast('倒计时结束后再发送');
-				}
-			},
-			calendarClose() {
-				this.showCalendar = false
-				this.$refs.form1.validateField('hotel')
-			},
 			birthdayClose() {
 				this.showBirthday = false
 				this.$refs.form1.validateField('userInfo.birthday')
@@ -278,6 +267,26 @@
 				this.showBirthday = false
 				this.model1.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd')
 				this.$refs.form1.validateField('userInfo.birthday')
+			},
+			changeHandler(e) {
+				const {
+					columnIndex,
+					value,
+					values, // values为当前变化列的数组内容
+					index,
+					// 微信小程序无法将picker实例传出来，只能通过ref操作
+					picker = this.$refs.uPicker
+				} = e
+				// 当第一列值发生变化时，变化第二列(后一列)对应的选项
+				if (columnIndex === 0) {
+					// picker为选择器this实例，变化第二列对应的选项
+					picker.setColumnValues(1, this.columnData[index])
+				}
+			},
+			// 回调参数为包含columnIndex、value、values
+			confirm(e) {
+				console.log('confirm', e)
+				this.cityShow = false
 			},
 			submit() {
 				// 如果有错误，会在catch中返回报错信息数组，校验通过则在then中返回true
@@ -303,6 +312,11 @@
 			color: $theme-color;
 			margin-right: 10rpx;
 		}
+	}
+
+	/deep/.u-radio-group--row {
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 
 	.user-avatar {
