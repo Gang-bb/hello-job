@@ -1,7 +1,55 @@
 <template>
 	<view class="page p-30">
 		<view class="b-r-12 bg-fff box-shadow p-40 m-b-30">
-			<view class="p-b-30">
+			<view v-if="title===''" class="p-b-30">
+				<u--form labelPosition="top" :model="form" ref="form" :labelStyle="labelStyle">
+					<u-form-item label="学校" :required="true" prop="shcool" ref="shcool" borderBottom>
+						<u--input :disabled="false" v-model="form.shcool" border="none" placeholder="请输入您的学校"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="主修专业" :required="false" prop="major" ref="major" borderBottom>
+						<u--input :disabled="false" v-model="form.major" border="none" placeholder="请输入您的主修专业"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="学历" :required="true" prop="edu" ref="edu" borderBottom>
+						<u--input :disabled="false" v-model="form.edu" border="none" placeholder="请选择您的学历"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					
+					<u-form-item label="入学时间" :required="true" ref="item1"></u-form-item>
+					<u-form-item label="学校" :required="true" prop="subSchool" ref="subSchool" borderBottom>
+						<u--input :disabled="false" v-model="form.subSchool" border="none" placeholder="请输入您的学校"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="主修专业" :required="false" prop="subMajor" ref="subMajor" borderBottom>
+						<u--input :disabled="false" v-model="form.subMajor" border="none" placeholder="请输入您的主修专业"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="学历" :required="true" prop="subEdu" ref="subEdu" borderBottom>
+						<u--input :disabled="false" v-model="form.subEdu" border="none" placeholder="请选择您的学历"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="入学时间" :required="true" prop="eduStartTime" borderBottom
+						@click="showStart = true; hideKeyboard()" ref="eduStartTime">
+						<u--input v-model="form.eduStartTime" disabled disabledColor="#ffffff"
+							placeholder="请选择入学时间" border="none"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<u-form-item label="毕业时间" :required="true" prop="eduEndTime" borderBottom
+						@click="showEnd = true; hideKeyboard()" ref="eduEndTime">
+						<u--input v-model="form.eduEndTime" disabled disabledColor="#ffffff"
+							placeholder="请选择毕业时间" border="none"></u--input>
+						<u-icon slot="right" name="arrow-right"></u-icon>
+					</u-form-item>
+					<!-- 时间选择器 -->
+					<u-datetime-picker :show="showEduEnd" mode="date" closeOnClickOverlay
+						@confirm="eduStartConfirm()" @cancel="eduStartClose()" @close="eduStartClose"></u-datetime-picker>
+					<u-datetime-picker :show="showEduEnd" mode="date" closeOnClickOverlay
+						@confirm="eduEndConfirm()" @cancel="eduEndClose()" @close="eduEndClose"></u-datetime-picker>
+					
+				</u--form>
+			</view>
+			<view v-if="title==='工作经历'" class="p-b-30">
 				<u--form labelPosition="top" :model="form" ref="form" :labelStyle="labelStyle">
 					<u-form-item label="学校" :required="true" prop="shcool" ref="shcool" borderBottom>
 						<u--input :disabled="false" v-model="form.shcool" border="none" placeholder="请输入您的学校"></u--input>
@@ -72,6 +120,7 @@
 	export default {
 		data() {
 			return {
+				title: '', // 区分页面
 				form:{
 					school:'',
 					major:'',
@@ -79,8 +128,8 @@
 					subSchool:'',
 					subMajor:'',
 					subEdu:'',
-					startTime:'',
-					endTime:'',
+					eduStartTime:'',
+					eduEndTime:'',
 					content:''
 				},
 				placeholder:`请输入你的在校经历如示例:1.大学期间,连续四年获得年纪奖学金一等奖;2.大三下学期,在双单位xx部门实习三个月;获得最佳优秀实习生称号·`,
@@ -90,9 +139,9 @@
 					width:'200rpx',
 					marginLeft: '10rpx'
 				},
-				showStart: false,
-				showEnd: false,
-				rules: {
+				showEduStart: false,
+				showEduEnd: false,
+				eduRules: {
 					school: {
 						type: 'string',
 						required: true,
@@ -141,23 +190,40 @@
 		},
 		onReady() {
 			// 如果需要兼容微信小程序，并且校验规则中含有方法等，只能通过setRules方法设置规则
-			this.$refs.form.setRules(this.rules)
+			this.$refs.form.setRules(this.eduRules)
+		},
+		onLoad(e) {
+			const {text} = e
+			if(text) {
+				this.init().setTitle(text)
+			}
 		},
 		methods: {
-			startClose(show) {
+			init(){
+				return {
+					// 标题栏文字
+					setTitle:(text)=>{
+						this.title = text
+						uni.setNavigationBarTitle({
+							title: text
+						})
+					}
+				}
+			},
+			eduStartClose(show) {
 				this.showStart = false
 				// this.$refs.form.validateField('birthday')
 			},
-			startConfirm(e, show) {
+			eduStartConfirm(e, show) {
 				this.showStart = false
 				// this.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd')
 				// this.$refs.form.validateField('birthday')
 			},
-			endClose() {
+			eduEndClose() {
 				this.showEnd = false
 				// this.$refs.form.validateField('birthday')
 			},
-			endConfirm() {
+			eduEndConfirm() {
 				this.showEnd = false
 				// this.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd')
 				// this.$refs.form.validateField('birthday')
