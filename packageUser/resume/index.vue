@@ -12,7 +12,7 @@
 			<image src="../../static/images/icon/index/search-more.png" mode="aspectFill" class="user-avatar"></image>
 		</view>
 		<!-- 自我评价 -->
-		<view class="b-r-12 bg-fff box-shadow f-s-32 color p-40 m-b-30">
+		<view class="b-r-12 bg-fff box-shadow f-s-32 color p-40 m-b-30" @click="navigateTos('/packageUser/resume/self-evaluate')">
 			<view class="row-between">
 				自我评价<u-icon name="edit-pen" size="22" color="#999"></u-icon>
 			</view>
@@ -23,7 +23,7 @@
 		<!-- 教育经历 -->
 		<view class="b-r-12 bg-fff box-shadow f-s-32 color p-40 m-b-30">
 			<view class="row-between">
-				教育经历<u-icon name="plus-circle" size="22" color="#999"></u-icon>
+				教育经历<u-icon name="plus-circle" size="22" color="#999" @click="navigateTos('/packageUser/resume/add')"></u-icon>
 			</view>
 			<u-cell :border="true" v-for="(item,index) in 2" :key="index" isLink>
 				<view slot="title" class="c9 f-s-24 p-t-30">

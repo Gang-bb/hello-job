@@ -3,20 +3,15 @@
 		<view class="b-r-12 bg-fff box-shadow f-s-24 p-l-40 p-r-40 p-t-50 p-b-80 m-t-b-20">
 			<!-- 注意，如果需要兼容微信小程序，最好通过setRules方法设置rules规则 -->
 			<u--form labelPosition="top" :model="userInfo" ref="form" :labelStyle="labelStyle">
-				<u-form-item label="邮箱" prop="email" borderBottom ref="email">
+				<u-form-item label="邮箱" :required="true" prop="email" borderBottom ref="email">
 					<u--input v-model="userInfo.email" border="none" placeholder="请输入您的邮箱"></u--input>
 				</u-form-item>
-				<u-form-item label="反馈类型" prop="feedbackType" borderBottom @click="showType = true; hideKeyboard()" ref="feedbackType">
+				<u-form-item label="反馈类型" :required="true" prop="feedbackType" borderBottom @click="showType = true; hideKeyboard()" ref="feedbackType">
 					<u--input v-model="userInfo.feedbackType" disabled disabledColor="#ffffff" placeholder="请选择反馈类型" border="none"></u--input>
 					<u-icon slot="right" name="arrow-right"></u-icon>
 				</u-form-item>
-				<u-form-item label="反馈信息" prop="content" borderBottom ref="content">
-					<u--textarea
-						placeholder="请输入反馈信息"
-						v-model="userInfo.content"
-						count
-						height="250rpx"
-					></u--textarea>
+				<u-form-item label="反馈信息" :required="true" prop="content" borderBottom ref="content">
+					<u--textarea placeholder="请输入反馈信息" v-model="userInfo.content" count height="250rpx"></u--textarea>
 				</u-form-item>
 			</u--form>
 			<u-action-sheet :show="showType" :actions="actions" title="请选择反馈类型" description="如果选择保密会报错" @close="showType = false" @select="setType"></u-action-sheet>
@@ -42,7 +37,8 @@
 				labelStyle:{
 					fontSize:'26rpx',
 					color: '#999',
-					width:'200rpx'
+					width:'200rpx',
+					marginLeft: '10rpx'
 				},
 				showType: false,
 				actions: [{
@@ -133,13 +129,13 @@
 
 <style lang="scss" scoped>
 	@import '@/static/style/variables.scss';
-	/deep/.u-form-item__body__left__content {
+	/* /deep/.u-form-item__body__left__content {
 		&:before {
 			content: '*';
 			color: $theme-color;
 			margin-right: 10rpx;
 		}
-	}
+	} */
 	/deep/.u-border {
 		border: none;
 	}
