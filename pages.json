@@ -76,6 +76,22 @@
 		{
 			"root": "packageUser",
 			"pages": [{
+				"path": "resume/index",
+				"style": {
+					"navigationBarTitleText": "完善简历",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			},{
+				"path": "resume/base-info",
+				"style": {
+					"navigationBarTitleText": "基本信息",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
 				"path": "regist-record/index",
 				"style": {
 					"navigationBarTitleText": "报名记录",
@@ -83,7 +99,6 @@
 					"navigationBarBackgroundColor": "#fff",
 					"navigationBarTextStyle": "black"
 				}
-
 			}, {
 				"path": "regist-record/detail",
 				"style": {
@@ -100,6 +115,14 @@
 					"enablePullDownRefresh": false
 				}
 
+			}, {
+				"path": "feedback",
+				"style": {
+					"navigationBarTitleText": "求助反馈",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
 			}]
 		}
 	],

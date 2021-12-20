@@ -20,11 +20,14 @@
 				<view class="my-profile-left">
 					<LineHead title="我的资料" class="m-b-20" />
 					<view class="f-s-24 m-b-20">企业都喜欢完善度比较高的资料哦~</view>
-					<view class="my-profile-btn">立即完善</view>
+					<view class="my-profile-btn" @click="navigateTos('/packageUser/resume/index')">立即完善</view>
 				</view>
 				<view class="" style="">
-					<ProgressBar percent="50" />
+					<!-- <ProgressBar :percent="20" /> -->
 					<!-- <ProgressBa2 /> -->
+					<!-- <ProgressBar3 /> -->
+					<!-- <ProgressBar4 /> -->
+					<CircleProgress :percent="20" />
 				</view>
 			</view>
 		</view>
@@ -35,14 +38,22 @@
 			</u-cell>
 		</view>
 		
-		<view class="menu-block box-shadow m-t-30 m-l-30 m-r-30">
+		<view class="menu-block box-shadow m-t-30 m-l-30 m-r-30 p-t-b-30 bg-fff">
 			<view class="menu-item bottom">
-				<u-cell title="联系客服" :border="false" isLink>
-					<text slot="value" class="tip">欢迎吐槽</text>
+				<u-cell :border="false" isLink>
+					<view slot="title" class="" style="width: 160rpx;">
+						<button open-type="contact" class="kefu-btn">
+							<view class="row-between">
+								<text>联系客服</text>
+								<text class="tip">欢迎吐槽</text>
+							</view>
+							</button>
+					</view>
+					
 				</u-cell>
 			</view>
 			<view class="menu-item bottom">
-				<u-cell title="求助反馈" :border="false" isLink>
+				<u-cell title="求助反馈" :border="false" isLink url="/packageUser/feedback">
 					<text slot="value" class="u-slot-value"></text>
 				</u-cell>
 			</view>
@@ -59,9 +70,12 @@
 <script>
 	import ProgressBar from './components/ProgressBar.vue'
 	import ProgressBa2 from './components/ProgressBa2.vue'
+	import ProgressBar3 from './components/ProgressBar3.vue'
+	import ProgressBar4 from './components/ProgressBar4.vue'
+	import CircleProgress from './components/circle-progress.vue'
 	import LineHead from '@/components/layout/line-head.vue'
 	export default {
-		components: {ProgressBar, ProgressBa2, LineHead},
+		components: {ProgressBar, ProgressBa2, ProgressBar3, ProgressBar4, CircleProgress, LineHead},
 		data() {
 			return {
 				avater_url: require('@/static/images/icon/index/search-more.png'),
@@ -138,5 +152,34 @@
 	.bottom {
 		border-radius: 0;
 	}
+	
+	.kefu-btn {
+		border: none;
+		background-color: #fff;
+		width: 560rpx;
+		font-size: 28rpx;
+		padding-left: 6rpx !important;
+	}
+	/deep/button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding: 0 !important;
+		line-height: 28rpx !important;
+}
+	
+	/deep/button::after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding: 0 !important;
+}
 	
 </style>
