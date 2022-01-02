@@ -33,7 +33,7 @@
 	@import '@/static/style/variables.scss';
 	/*每个页面公共css */
 	.page {
-		background: #F8F8F8;
+		background: $default-bg-color;
 		color: #303133;
 		// padding: 0 30rpx;
 		font-family: PingFangSC-Regular, PingFang SC;

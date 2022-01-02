@@ -1,84 +1,136 @@
 <template>
-	<view class="page index-page">
-		<!-- nav -->
-		<CommonNav />
-		<!-- 顶部tab -->
-		<u-sticky :offset-top="sysNav.top + sysNav.height">
-			<view class="bg-fff border-box top-box">
-				<view class="top-tab-block m-b-20 p-l-r-30">
-					<u-tabs 
-						:list="topTabList" :current="tabIndex" lineWidth="20" lineHeight="4" lineColor="#F56718"
-						:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '32rpx'}"
-						:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
-						itemStyle="height: 80rpx;" @change="(item)=>handler().click(item)">
-					</u-tabs>
-				</view>
-			</view>
-		</u-sticky>
-		<!-- 推荐 -->
-		<view class="" v-if="tabIndex===0">
-			<RecomendItem />
+	<view>
+		<!-- 金刚区 -->
+		<view class="m-b-20">
+			<u-grid :border="false" col="5">
+				<u-grid-item v-for="(listItem,listIndex) in categorys" :key="listIndex" @click="()=>handler().openPage(listItem)">
+					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="listItem.name" :size="40"></u-icon>
+					<text class="categorys-text">{{listItem.title}}</text>
+				</u-grid-item>
+			</u-grid>
 		</view>
-		<!-- 附近 -->
-		<view class="" v-else>
-			<!-- 地点 -->
-			<view class="place-box row-between m-t-20 m-b-40 p-l-r-30">
-				<view class="row-center place-box-left">
-					<u-icon name="reload" size="15" color=""></u-icon>
-					<text class="f-s-22 job-inline m-l-15">广西壮族自治区南宁市兴宁区金仑路32号广西壮族自治区南宁市兴宁区金仑路32号</text>
+		<!-- 轮播图 -->
+		<view class="bg-F8F8F8 p-t-20 p-l-30 p-r-30">
+			<u-swiper :list="banners" height="300rpx" @change="e => bannerIndex = e.current" :autoplay="false">
+				<view slot="indicator" class="indicator">
+					<view class="indicator__dot" v-for="(item, index) in banners" :key="index" :class="[index === bannerIndex && 'indicator__dot--active']"></view>
 				</view>
-				<view class="row-center place-box-right">
-					<text class="f-s-22 m-r-15 job-inline">5公里内5公里内5公里内5公里内</text>
-					<u-icon name="arrow-down" size="12" color=""></u-icon>
+			</u-swiper>
+		</view>
+		<!-- 卡片 -->
+		<view class="top-card-block bg-F8F8F8">
+			<view v-for="(cardItem,cardIndex) in cardList" :key="cardIndex"  @click="()=>handler().openPage(cardItem)" class="card-item row-between bg-fff">
+				<view class="card-item-left">
+					<view class="card-item-title">{{cardItem.title}}</view>
+					<view class="card-item-text">{{cardItem.subTitle}}</view>
 				</view>
+				<u-icon :name="cardItem.name" :size="60"></u-icon>
 			</view>
-			<u-sticky :offset-top="sysNav.top + sysNav.height">
-				<view class="row center f-s-22 m-t-b-20 p-l-r-30 bg-fff near-select-block">
-					<view class="row-center select-box m-r-20">
-						<text class="m-r-10">兼职猫自营</text>
+		</view>
+		<!-- 名企兼职 -->
+		<view class="mqjz-block bg-F8F8F8 p-l-30 p-r-30 p-t-60 p-b-20">
+			<view class="mqjz-head row center m-b-20">
+				<view class="head-left-line"></view>名企兼职
+			</view>
+			<view class="mqjz-tip m-b-20">工作好~环境好~福利更好~</view>
+			<view class="jz-item box-shadow row space-between m-b-20">
+				<view class="jz-item-left row center">
+					<image src="https://cdn.uviewui.com/uview/album/1.jpg" mode="aspectFill"></image>
+					<view class="">
+						<view>货拉拉</view>
+						<view class="jz-text job-inline">1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你1个岗位在招，工作简单自由就等你</view>
 					</view>
+				</view>
+				<view class="">200/单</view>
+			</view>
+			<view class="more-item box-shadow m-b-20">
+				更多名企兼职，点这里发现！>
+				<image src="@/static/images/icon/index/search-more.png" mode="aspectFill" class="bg"></image>
+			</view>
+		</view>
+		<!-- 中间tab -->
+		<u-sticky :offset-top="sysNav.top + sysNav.height">
+			<view class="bg-fff m-b-20 p-l-r-30 center-tab-block bottom-line">
+				<u-tabs
+					:list="centerTabList" :current="cTabIndex" lineWidth="20" lineHeight="3" lineColor="#F56718"
+					:activeStyle="{color: '#333',fontWeight: 'bold', fontSize: '30rpx'}"
+					:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
+					itemStyle="padding: 20rpx 30rpx;">
+				</u-tabs>
+				<view class="row f-s-22 m-t-10">
 					<view class="row-center select-box m-r-20">
 						<text class="m-r-10">类型</text>
 						<u-icon name="arrow-down" size="9"></u-icon>
 					</view>
 					<view class="row-center select-box">
-						<text class="m-r-10">排序</text>
+						<text class="m-r-10">区域</text>
 						<u-icon name="arrow-down" size="9"></u-icon>
 					</view>
 				</view>
-			</u-sticky>
-			
-			<JobList :list="jobList"></JobList>
-		</view>
-		<u-back-top :scroll-top="scrollTop" icon="arrow-up" :iconStyle="iStyle" :customStyle="cStyle"></u-back-top>
+			</view>
+		</u-sticky>
+		<!-- 底部兼职列表 -->
+		<JobList :list="jobList"></JobList>
 	</view>
 </template>
 
 <script>
-	import CommonNav from '@/components/layout/common-nav.vue'
 	import JobList from '@/components/list/job-list.vue'
-	import RecomendItem from './components/recomend-item.vue'
 	import {mapState} from 'vuex'
-	import {getUserAddress} from '@/utils/util'
 	export default {
-		components: { CommonNav, JobList, RecomendItem },
+		name: 'recomend-item',
+		components: { JobList },
 		data() {
 			return {
-				scrollTop: 0, 
-				// mode: 'circle',
-				iStyle: {
-					fontSize: '32rpx',
-					color: '#ffffff',
-				},
-				cStyle: {
-					backgroundColor: '#F56718',
-				},
-				tabIndex: 0, // 当前选中tab
-				topTabList:[
+				categorys: [
 					{
-						name: '推荐'
+						name: 'photo',
+						title: '热招兼职'
+					},
+					{
+							name: 'lock',
+							title: '学生兼职'
+					},
+					{
+							name: 'star',
+							title: '高薪日结'
+					},
+					{
+							name: 'hourglass',
+							title: '严选兼职'
+					},
+					{
+							name: 'home',
+							title: '企业直招'
+					}
+				],
+				bannerIndex: 0,
+				banners: [
+					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
+					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
+					'https://cdn.uviewui.com/uview/swiper/swiper1.png',
+				],
+				cardList:[
+					{
+						title: '周末兼职',
+						subTitle: '赚点零花钱',
+						name:'photo'
+					},{
+						title: '在线兼职',
+						subTitle: '在家就能做',
+						name: 'home'
+					},
+				],
+				cTabIndex: 0, // 当前选中tab
+				centerTabList:[
+					{
+						name: '精选'
 					}, {
-						name: '附近'
+						name: '在线课程'
+					},{
+						name: '技能兼职'
+					}, {
+						name: '日结兼职'
 					}
 				],
 				jobList:[
@@ -334,132 +386,161 @@
 						place: '江南江南江南江南江南江南江南江南江南江南'
 					},
 				]
-			
-			}
+				
+			};
 		},
 		computed:{
 			...mapState(['sysNav'])
 		},
-		onLoad() {
-			
-		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
-		},
-		onPullDownRefresh() {
-			this.handler().stopPullDownRefresh()
-		},
-		onReachBottom() {
-			
-		},
 		methods: {
-			isGetLocation(a = "scope.userLocation") { // 3. 检查当前是否已经授权访问scope属性，参考下截图
-				let _this = this;
-				uni.getSetting({
-					success(res) {
-						if (!res.authSetting[a]) { //3.1 每次进入程序判断当前是否获得授权，如果没有就去获得授权，如果获得授权，就直接获取当前地理位置
-							uni.setStorageSync('locationData', '')
-							openUrl('/pages/login/unlocate', '1')
-						} else { // 如果授权了 直接获取定位信息
-							getUserAddress(function(val) {
-								let locationData = uni.getStorageSync('locationData')
-								if (locationData) {
-									let params = {
-										city_name: locationData.ad_info.city,
-										longitude: locationData.location.lng,
-										latitude: locationData.location.lat,
-										page: 1,
-										page_size: 10,
-										pon_type: 'tencent'
-									}
-									getS(params).then(suc => { // 获取距离最近的门店
-										console.log(suc, 'suc')
-										let {
-											data
-										} = suc
-										if (data.data.length == 0) {
-											_this.setStoreID('')
-											_this.setStoreData({})
-										} else {
-											_this.setStoreID(data.data[0].id)
-											_this.setStoreData(data.data[0])
-										}
-									})
-								}
-							})
-						}
-					}
-				});
-			},
-			
-			init(){
-				return {
-					getData: () => {
-						
-					},
-					network: ()=> {
-						
-					}
-				}
-			},
 			handler(){
 				return {
-					click: (item)=> {
-						const { index, name } = item
-						this.tabIndex = index
-						// console.log(`点击了`,item, this.tabIndex);
+					// 页面跳转
+					openPage:(listItem) => {
+						let params = JSON.stringify(listItem)
+						this.navigateTos(`/packageHome/hot-job?params=${params}`)
 					},
-					stopPullDownRefresh: ()=> {
-						uni.stopPullDownRefresh()
-					}
-				}
-			},
-			network(){
-				return {
-					
 				}
 			}
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
-	.index-page {
-		padding-bottom: 30rpx;
-		background-color: #FFFFFF;
+<style lang="scss">
+	
+	.categorys-text {
+		font-size: 24rpx;
+		padding: 10rpx 0 20rpx 0rpx;
+		box-sizing: border-box;
 	}
 	
-	.top-box {
+	// 轮播图指示器样式 
+	.indicator {
+		@include flex(row);
+		justify-content: center;
+		&__dot {
+			height: 10rpx;
+			width: 10rpx;
+			border-radius: 50%;
+			background-color: rgba(255, 255, 255, 0.35);
+			margin: 0 10rpx;
+			transition: background-color 0.3s;
+			&--active {
+				width: 30rpx;
+				border-radius: 6rpx;
+				background-color: #ffffff;
+			}
+		}
+	}
+	
+	.top-card-block {
+		display: flex;
 		width: 750rpx;
-		height: 100rpx;
-		.top-tab-block {
-			width: 300rpx;
+		box-sizing: border-box;
+		border-radius: 12rpx;
+		padding: 20rpx 30rpx;
+		.card-item {
+			box-sizing: border-box;
+			width: 50%;
+			padding: 30rpx 50rpx 30rpx 30rpx;
+			background: #fff;
+			.card-item-left {
+				.card-item-title {
+					font-size: 28rpx;
+				}
+				.card-item-text {
+					margin-top: 10rpx;
+					color: #999;
+					font-size: 24rpx;
+				}
+			}
+			
 		}
 		
+		.card-item:first-child {
+			border-right: 1rpx solid #eaeaea;
+		}
+	}
+	
+	// 名企兼职
+	.mqjz-block {
+		.mqjz-head {
+			font-size: 32rpx;
+			font-weight: bold;
+			.head-left-line {
+				width: 10rpx;
+				height: 30rpx;
+				border-radius: 3rpx;
+				background: #F56718;
+				margin-right: 8rpx;
+			}
+		}
+		
+		.mqjz-tip {
+			color: #999;
+			font-size: 22rpx;
+			margin-left: 10rpx;
+		}
+		.jz-item {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 30rpx;
+			color: #F56718;
+			font-size: 30rpx;
+			font-weight: bold;
+			background: #fff;
+			border-radius: 12rpx;
+			.jz-item-left {
+				font-size: 28rpx;
+				color: #303133;
+				>image {
+					display: block;
+					width: 80rpx;
+					height: 80rpx;
+					margin-right: 20rpx;
+				}
+				.jz-text {
+					font-size: 22rpx;
+					color: #999;
+					font-weight: normal;
+					margin-top: 15rpx;
+					width: 100%;
+					width: 400rpx;
+				}
+			}
+		}
+		
+		.more-item {
+			box-sizing: border-box;
+			background: #fff;
+			border-radius: 12rpx;
+			padding: 0 30rpx;
+			width: 100%;
+			height: 140rpx;
+			line-height: 140rpx;
+			font-size: 24rpx;
+			color: #666;
+			position: relative;
+			.bg {
+				width: 140rpx;
+				height: 140rpx;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+		
+	}
+	
+	.center-tab-block {
+		height: 150rpx;
 	}
 	
 	.select-box {
 		padding: 6rpx 20rpx;
 		background-color: #eee;
 		border-radius: 20rpx;
-	}
-	
-	.place-box {
-		color: #999;
-		box-sizing: border-box;
-		.place-box-left {
-			width: 460rpx;
-		}
-		.place-box-right {
-			width: 180rpx;
-		}
-	}
-	
-	.near-select-block {
-		height: 88rpx;
-		/* .select-box {
-			height: 40rpx;
-		} */
 	}
 	
 </style>

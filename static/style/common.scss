@@ -42,7 +42,7 @@
 }
   
 @for $i from 1 through 100 {
-	.m--#{$i} {
+	.m-#{$i} {
 		margin: #{$i}rpx;
 	}
 }
@@ -86,5 +86,11 @@
 @for $i from 1 through 100 {
 	.p-#{$i} {
 		padding: #{$i}rpx;
+	}
+}
+
+@for $i from 0 through 100 {
+	.b-r-#{$i} {
+		border-radius: #{$i}rpx;
 	}
 }

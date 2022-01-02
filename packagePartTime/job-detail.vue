@@ -1,86 +1,107 @@
 <template>
-	<view class="page index-page">
-		<!-- nav -->
-		<CommonNav />
-		<!-- 顶部tab -->
-		<u-sticky :offset-top="sysNav.top + sysNav.height">
-			<view class="bg-fff border-box top-box">
-				<view class="top-tab-block m-b-20 p-l-r-30">
-					<u-tabs 
-						:list="topTabList" :current="tabIndex" lineWidth="20" lineHeight="4" lineColor="#F56718"
-						:activeStyle="{color: '#F56718',fontWeight: 'bold', fontSize: '32rpx'}"
-						:inactiveStyle="{color: '#303133', fontSize: '26rpx'}"
-						itemStyle="height: 80rpx;" @change="(item)=>handler().click(item)">
-					</u-tabs>
+	<view class="page p-b-30">
+		<view class="detail-top">
+			<image src="" mode="aspectFill" class="detail-top-bg"></image>
+			<view class="detail-top-title p-30">
+				<view class="f-s-40 m-t-20 m-b-20">白班快递分拣150一天</view>
+				<view class="m-b-20 f-s-32 color main">150元/天</view>
+				<view class="f-s-28">兴宁|短招</view>
+			</view>
+			<view class="detail-top-date detail-box">
+				<view class="row start m-b-30">
+					<u-icon name="calendar" size="20" color="#999"></u-icon>
+					<view class="m-l-20">
+						<view class="f-s-26 m-b-20 color font">工作日期</view>
+						<view class="f-s-24">12月10日-12月31日（报名后具体沟通）</view>
+					</view>
+				</view>
+				<view class="row start">
+					<u-icon name="map" size="20" color="#999"></u-icon>
+					<view class="m-l-20">
+						<view class="f-s-26 m-b-20 color">工作地点</view>
+						<view class="f-s-24">三塘昆仑大道金仑路10号</view>
+					</view>
 				</view>
 			</view>
-		</u-sticky>
-		<!-- 推荐 -->
-		<view class="" v-if="tabIndex===0">
-			<RecomendItem />
 		</view>
-		<!-- 附近 -->
-		<view class="" v-else>
-			<!-- 地点 -->
-			<view class="place-box row-between m-t-20 m-b-40 p-l-r-30">
-				<view class="row-center place-box-left">
-					<u-icon name="reload" size="15" color=""></u-icon>
-					<text class="f-s-22 job-inline m-l-15">广西壮族自治区南宁市兴宁区金仑路32号广西壮族自治区南宁市兴宁区金仑路32号</text>
-				</view>
-				<view class="row-center place-box-right">
-					<text class="f-s-22 m-r-15 job-inline">5公里内5公里内5公里内5公里内</text>
-					<u-icon name="arrow-down" size="12" color=""></u-icon>
-				</view>
+		
+		<!-- 职位详情 -->
+		<view class="detail-box f-s-26 c6 m-30">
+			<LineHead title="职位详情"/>
+			<view class="content m-t-30">
+				【工作内容】
 			</view>
-			<u-sticky :offset-top="sysNav.top + sysNav.height">
-				<view class="row center f-s-22 m-t-b-20 p-l-r-30 bg-fff near-select-block">
-					<view class="row-center select-box m-r-20">
-						<text class="m-r-10">兼职猫自营</text>
+			<view class="content">
+				【任职要求】<text>双十二招聘200名兼职，要求：男女不限，16-50岁</text>
+			</view>
+			<view class="content">【工作时间】</view>
+			<view class="content">
+				12月10-12月11日(培训两天有工资)早班8-20,14/小时
+				中班14.00-1.30。15/小时12月12—12月15日中班转夜班
+				早班:8:00～21:00(14元/小时)
+				夜班:20:00～08:00(15元/小时)(补贴10元)有休息时间,休息吃饭时间不算工时,相对轻松,都是小件货!
+			</view>
+			<view class="content">
+				工作内容:<text>根据需求在指定区域打包、捡货。</text>
+			</view>
+			<view class="content">
+				工资发放说明:<text>满5天才有工资,活动结束后一周内结算。</text>
+			</view>
+			<view class="content">
+				提供住宿10元一天,不住不扣。吃饭有食堂自费10一20一餐。
+			</view>
+		</view>
+		
+		<!-- 温馨提醒 -->
+		<view class="detail-box f-s-26 c6 m-30">
+			<LineHead title="温馨提醒" class="m-b-40 " />
+			<view class="row start m-t-30">
+				<u-icon name="info-circle" size="17" color="#F56718" class="m-r-6"></u-icon>
+				<text class="main-color f-s-22">凡涉及到工作内容不符,收费、违法信息传播的工作,请您警惕并收集关联证据向我们举报。</text>
+			</view>
+		</view>
+		
+		<!-- 发布机构 -->
+		<view class="detail-box f-s-26 c6 m-30">
+			<LineHead title="发布机构" />
+			<view class="row-between m-t-30">
+				<view class="row center" @click="navigateTos('/packagePartTime/company-detail')">
+					<view class="org-avatar m-r-30">
+						<image src="../static/images/icon/index/search-more.png" mode="aspectFill"></image>
+						<view class="row-center org-tag f-s-20 color white">
+							<u-icon name="integral-fill" size="10" color="#fff" class="m-r-6"></u-icon>
+							企业认证
+						</view>
 					</view>
-					<view class="row-center select-box m-r-20">
-						<text class="m-r-10">类型</text>
-						<u-icon name="arrow-down" size="9"></u-icon>
-					</view>
-					<view class="row-center select-box">
-						<text class="m-r-10">排序</text>
-						<u-icon name="arrow-down" size="9"></u-icon>
+					<view class="">
+						<view class="f-s-28 color m-b-15">广西瑞申电子设备有限公司</view>
+						<view class="f-s-24 c9">1个岗位在招</view>
 					</view>
 				</view>
-			</u-sticky>
+				
+				<u-icon name="arrow-right" size="17" color="#999"></u-icon>
+			</view>
+		</view>
+		
+		<!-- 根据你浏览的职位推荐 -->
+		<view class="detail-box f-s-26 c6 m-30 detail-box-bottom">
+			<view class="p-b-30 p-l-30 p-r-30 bottom-line" style="width: 630rpx;">
+				<LineHead title="根据你浏览的职位推荐" class="" :isReload="true" @reload="()=>handler().reload()" />
+			</view>
 			
 			<JobList :list="jobList"></JobList>
 		</view>
-		<u-back-top :scroll-top="scrollTop" icon="arrow-up" :iconStyle="iStyle" :customStyle="cStyle"></u-back-top>
+		
 	</view>
 </template>
 
 <script>
-	import CommonNav from '@/components/layout/common-nav.vue'
+	import LineHead from '@/components/layout/line-head.vue'
 	import JobList from '@/components/list/job-list.vue'
-	import RecomendItem from './components/recomend-item.vue'
-	import {mapState} from 'vuex'
-	import {getUserAddress} from '@/utils/util'
 	export default {
-		components: { CommonNav, JobList, RecomendItem },
+		components: { LineHead, JobList },
 		data() {
 			return {
-				scrollTop: 0, 
-				// mode: 'circle',
-				iStyle: {
-					fontSize: '32rpx',
-					color: '#ffffff',
-				},
-				cStyle: {
-					backgroundColor: '#F56718',
-				},
-				tabIndex: 0, // 当前选中tab
-				topTabList:[
-					{
-						name: '推荐'
-					}, {
-						name: '附近'
-					}
-				],
 				jobList:[
 					{
 						title:'在家线上学习PS做兼职',
@@ -334,89 +355,15 @@
 						place: '江南江南江南江南江南江南江南江南江南江南'
 					},
 				]
-			
-			}
-		},
-		computed:{
-			...mapState(['sysNav'])
-		},
-		onLoad() {
-			
-		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
-		},
-		onPullDownRefresh() {
-			this.handler().stopPullDownRefresh()
-		},
-		onReachBottom() {
-			
+				
+			};
 		},
 		methods: {
-			isGetLocation(a = "scope.userLocation") { // 3. 检查当前是否已经授权访问scope属性，参考下截图
-				let _this = this;
-				uni.getSetting({
-					success(res) {
-						if (!res.authSetting[a]) { //3.1 每次进入程序判断当前是否获得授权，如果没有就去获得授权，如果获得授权，就直接获取当前地理位置
-							uni.setStorageSync('locationData', '')
-							openUrl('/pages/login/unlocate', '1')
-						} else { // 如果授权了 直接获取定位信息
-							getUserAddress(function(val) {
-								let locationData = uni.getStorageSync('locationData')
-								if (locationData) {
-									let params = {
-										city_name: locationData.ad_info.city,
-										longitude: locationData.location.lng,
-										latitude: locationData.location.lat,
-										page: 1,
-										page_size: 10,
-										pon_type: 'tencent'
-									}
-									getS(params).then(suc => { // 获取距离最近的门店
-										console.log(suc, 'suc')
-										let {
-											data
-										} = suc
-										if (data.data.length == 0) {
-											_this.setStoreID('')
-											_this.setStoreData({})
-										} else {
-											_this.setStoreID(data.data[0].id)
-											_this.setStoreData(data.data[0])
-										}
-									})
-								}
-							})
-						}
-					}
-				});
-			},
-			
-			init(){
-				return {
-					getData: () => {
-						
-					},
-					network: ()=> {
-						
-					}
-				}
-			},
 			handler(){
 				return {
-					click: (item)=> {
-						const { index, name } = item
-						this.tabIndex = index
-						// console.log(`点击了`,item, this.tabIndex);
+					reload: ()=> {
+						
 					},
-					stopPullDownRefresh: ()=> {
-						uni.stopPullDownRefresh()
-					}
-				}
-			},
-			network(){
-				return {
-					
 				}
 			}
 		}
@@ -424,42 +371,80 @@
 </script>
 
 <style lang="scss" scoped>
-	.index-page {
-		padding-bottom: 30rpx;
-		background-color: #FFFFFF;
+	@import 'static/style/variables.scss';
+	/deep/.job-list .job-item:last-child {
+		border-bottom: none;
+	}
+	.detail-box {
+		box-sizing: border-box;
+		width: 690rpx;
+		background: #fff;
+		border-radius: 12rpx;
+		padding: 50rpx 30rpx;
+		box-shadow: 0 3rpx 6rpx rgba($color: #000000, $alpha: 0.05);
 	}
 	
-	.top-box {
+	.detail-box-bottom {
+		padding: 50rpx 0 0 0;
+		overflow: hidden;
+	}
+	
+	.detail-top {
 		width: 750rpx;
-		height: 100rpx;
-		.top-tab-block {
-			width: 300rpx;
+		height: 560rpx;
+		position: relative;
+		.detail-top-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 350rpx;
+			background: #000;
+			border-radius: 0 0 20rpx 20rpx;
+		}
+		
+		.detail-top-title {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #fff;
+		}
+		
+		.detail-top-date {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			margin: 0 30rpx;
+			color: #999;
 		}
 		
 	}
 	
-	.select-box {
-		padding: 6rpx 20rpx;
-		background-color: #eee;
-		border-radius: 20rpx;
+	.content {
+		line-height: 40rpx;
 	}
 	
-	.place-box {
-		color: #999;
-		box-sizing: border-box;
-		.place-box-left {
-			width: 460rpx;
+	.org-avatar {
+		width: 120rpx;
+		height: 120rpx;
+		border-radius: 50%;
+		position: relative;
+		>image {
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
 		}
-		.place-box-right {
-			width: 180rpx;
+		.org-tag {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			background-color: $primary-color;
+			border-radius: 20rpx;
+			padding: 2rpx 10rpx;
 		}
-	}
-	
-	.near-select-block {
-		height: 88rpx;
-		/* .select-box {
-			height: 40rpx;
-		} */
 	}
 	
 </style>

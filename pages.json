@@ -7,14 +7,14 @@
 				"navigationBarTitleText": "首页",
 				"enablePullDownRefresh": true
 			}
-		},{
+		}, {
 			"path": "pages/partTime/index",
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "全部兼职",
 				"enablePullDownRefresh": true
 			}
-		},{
+		}, {
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "个人中心",
@@ -25,19 +25,121 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "hello-job",
-		"navigationBarBackgroundColor": "#F56718",
+		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"subPackages": [
+	"subPackages": [{
+			"root": "packageHome",
+			"pages": [{
+				"path": "city",
+				"style": {
+					"navigationBarTitleText": "选择城市",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "search",
+				"style": {
+					"navigationBarTitleText": "搜索",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "hot-job",
+				"style": {
+					"navigationBarTitleText": "热招兼职",
+					"enablePullDownRefresh": false
+				}
+
+			}]
+		},
 		{
 			"root": "packagePartTime",
-			"pages": []
+			"pages": [{
+				"path": "job-detail",
+				"style": {
+					"navigationBarTitleText": "兼职详情",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "company-detail",
+				"style": {
+					"navigationBarTitleText": "企业详情",
+					"enablePullDownRefresh": false
+				}
+
+			}]
 		},
 		{
 			"root": "packageUser",
-			"pages": []
+			"pages": [{
+				"path": "resume/index",
+				"style": {
+					"navigationBarTitleText": "完善简历",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			},{
+				"path": "resume/base-info",
+				"style": {
+					"navigationBarTitleText": "基本信息",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "resume/self-evaluate",
+				"style": {
+					"navigationBarTitleText": "自我评价",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			},{
+				"path": "resume/add",
+				"style": {
+					"navigationBarTitleText": "教育经历",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "regist-record/index",
+				"style": {
+					"navigationBarTitleText": "报名记录",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "regist-record/detail",
+				"style": {
+					"navigationBarTitleText": "报名详情",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+
+			}, {
+				"path": "real-name",
+				"style": {
+					"navigationBarTitleText": "实名认证",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "feedback",
+				"style": {
+					"navigationBarTitleText": "求助反馈",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}]
 		}
 	],
 	"tabBar": {

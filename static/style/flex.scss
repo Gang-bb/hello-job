@@ -3,6 +3,9 @@
 	&.center {
 		align-items: center;
 	}
+	&.start {
+		align-items: flex-start;
+	}
 	&.space-between {
 		justify-content: space-between;
 	}
@@ -31,7 +34,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
+	// align-items: center;
 }
 .row-around {
 	display: flex;
@@ -55,4 +58,7 @@
 }
 .flex-nowrap {
 	flex-wrap: nowrap;
+}
+.flex-1 {
+	flex: 1;
 }

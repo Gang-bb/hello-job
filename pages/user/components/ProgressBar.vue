@@ -3,10 +3,10 @@
 		<view class="circleprogress">
 			<view class="progresstext">{{percent}}%</view>
 			<view class="wrapper">
-				<view class="leftprogress" :style="{ transform: leftprogress}"></view>
+				<view class="leftprogress" :style="{ transform: leftprogress, borderRightColor: percent > 0 ? '#F56718' : ''}"></view>
 			</view>
 			<view class="wrapper">
-				<view class="rightprogress" :style="{ transform: rightprogress}"></view>
+				<view class="rightprogress" :style="{ transform: rightprogress, borderLeftColor: percent > 0 ? '#F56718' : ''}"></view>
 			</view>
 		</view>
 	</view>
@@ -17,7 +17,7 @@
 		props:{
 			percent: {
 				type: [Number, String],
-				default: '0'
+				default: 0
 			}
 		},
 		data() {
@@ -96,7 +96,7 @@
 		color: #F56718;
 	}
 	.circleprogress .wrapper{
-		width: 78rpx;
+		width: 85rpx;
 		height: 200rpx;
 		overflow: hidden;
 		margin-top: 45rpx;
@@ -104,17 +104,25 @@
 	.circleprogress .leftprogress,.rightprogress{
 		width: 100rpx;
 		height: 100rpx;
+		/* width: 110rpx;
+		height: 110rpx; */
 		border: 30rpx solid #ddd;
 		border-bottom: 30rpx solid #F56718;
+		/* border-bottom: 30rpx solid transparent; */
 		border-radius: 50%;
 		
 	}
 	.circleprogress .leftprogress{
 		border-right: 30rpx solid #F56718;
+		margin-left: 6rpx;
+		/* border-right: 30rpx solid transparent; */
+		
 	}
 	.circleprogress .rightprogress{
 		border-left: 30rpx solid #F56718;
-		margin-left: -80rpx;
+		/* border-left: 30rpx solid transparent; */
+		margin-left: -81rpx;
+		/* animation: circleProgressLoad_right 5s linear infinite; */
 	}
     
 </style>
